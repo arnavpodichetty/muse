@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muse · Arnav Podichetty</title>
+<meta name="description" content="Every Muse studio album, EP, single, live release and demo, with notes on each one and on every song.">
+<meta name="theme-color" content="#050505">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- the site's faces, plus one display face per era; browsers only download
+     the ones the page actually draws -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Archivo:wght@400..700&family=Bebas+Neue&family=Courier+Prime&family=Special+Elite&family=Cormorant+Garamond:ital,wght@1,500&family=Archivo+Black&family=Cinzel:wght@600&family=DM+Serif+Display:ital@0;1&family=Josefin+Sans:wght@300;600&family=Major+Mono+Display&family=Share+Tech+Mono&family=Audiowide&family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* base tokens and faces matching arnavpodichetty.com; each
+   release then lays its own era over them: --c1/--c2 (colours, as r,g,b),
+   --ef (display face) and a backdrop chosen by data-era */
+:root{
+  --serif: 'EB Garamond', serif;
+  --sans: 'Archivo', system-ui, sans-serif;
+  --mono: 'Courier Prime', 'Courier New', monospace;
+  --display: 'Bebas Neue', sans-serif;
+  --bg: 5,5,5;
+  --fg: 232,228,216;
+  --accent: 138,133,120;
+  --accent2: 90,84,74;
+  --gold: 226,184,76;
+}
+/* the page glow follows the era on screen; registered so it can fade */
+@property --glow{ syntax:'<color>'; inherits:true; initial-value:rgb(60,58,52); }
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scrollbar-color:rgba(var(--accent),.55) rgb(var(--bg)); }
+body{
+  background:rgb(var(--bg)); color:rgb(var(--fg));
+  font-family:var(--serif); font-size:17px; line-height:1.5;
+  overflow-x:hidden;
+  transition:--glow 1.2s ease;
+}
+body::before{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(900px 600px at 85% 10%, color-mix(in srgb, var(--glow) 22%, transparent), transparent 70%),
+    radial-gradient(800px 700px at 0% 100%, color-mix(in srgb, var(--glow) 14%, transparent), transparent 70%);
+}
+::selection{ background:rgba(var(--accent),.4); }
+a{ color:inherit; }
+.wrap{ max-width:1100px; margin:0 auto; padding:0 16px; }
+
+/* ---- hero ---- */
+.top{ position:relative; overflow:hidden; padding:52px 0 34px; border-bottom:1px solid rgba(var(--accent),.25); }
+/* the ten album covers, blurred into a wash behind the title */
+.top-wall{
+  position:absolute; inset:-60px; z-index:-1; display:flex;
+  filter:blur(46px) saturate(1.3); opacity:.38; transform:scale(1.1);
+}
+.top-wall img{ flex:1; min-width:0; height:100%; object-fit:cover; }
+.top::after{
+  content:''; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg, rgba(var(--bg),.2), rgba(var(--bg),.75) 70%, rgb(var(--bg)));
+}
+.back{ font-family:var(--mono); font-size:12px; opacity:.7; text-decoration:none; }
+.back:hover{ opacity:1; text-decoration:underline; text-underline-offset:2px; }
+.top h1{
+  font-family:var(--display); font-weight:400; letter-spacing:.06em;
+  font-size:clamp(84px, 17vw, 190px); line-height:.86; margin-top:16px;
+  /* every era's colour, drifting through the letters */
+  background:linear-gradient(100deg, #50b4eb, #f7b000, #28bea0, #b0c4d6, #e24628, #ff6e50, #ff3caa, #c82828, #ff3cc8, #ff6e28, #ffaa5a, #50b4eb);
+  background-size:300% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:drift 24s linear infinite;
+}
+@keyframes drift{ to{ background-position:300% 0; } }
+.top p{ max-width:680px; margin-top:14px; opacity:.88; }
+.stats{
+  display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:16px;
+  font-family:var(--mono); font-size:12px; opacity:.6;
+}
+/* the title and description beside a photo of the band */
+.top-grid{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 470px); gap:20px 44px; align-items:end; }
+.band-photo{ margin:0; }
+.band-photo img{
+  display:block; width:100%; height:auto; aspect-ratio:1300/730; object-fit:cover;
+  border:1px solid rgba(var(--fg),.18);
+  box-shadow:0 24px 60px -20px rgba(0,0,0,.9), 0 0 60px -20px var(--glow);
+}
+.band-photo figcaption, .m-credit{ margin-top:6px; font-family:var(--mono); font-size:10.5px; opacity:.5; }
+.band-photo figcaption a, .m-credit a{ text-decoration:none; }
+.band-photo figcaption a:hover{ text-decoration:underline; }
+/* the members: tall photos, names over a fade at the bottom */
+.members{ list-style:none; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px; margin-top:30px; }
+.members li{ position:relative; overflow:hidden; border:1px solid rgba(var(--c1),.35); transition:border-color .3s ease, box-shadow .3s ease; }
+.members li:hover{ border-color:rgb(var(--c1)); box-shadow:0 12px 34px -12px rgba(var(--c1),.6); }
+.m-photo{ display:block; aspect-ratio:4/3; overflow:hidden; }
+.m-photo img{ display:block; width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
+.members li:hover .m-photo img{ transform:scale(1.04); }
+.m-text{
+  position:absolute; left:0; right:0; bottom:0; padding:40px 14px 12px; pointer-events:none;
+  background:linear-gradient(180deg, transparent, rgba(5,5,5,.88) 55%);
+}
+.m-text b{ display:block; font-family:var(--display); font-weight:400; font-size:28px; letter-spacing:.04em; line-height:1; color:rgb(var(--c1)); }
+.m-text span{ display:block; margin-top:4px; font-family:var(--sans); font-size:13.5px; }
+.m-credit{ margin-top:8px; }
+/* the ten albums as a clickable timeline */
+.eras{
+  display:grid; grid-template-columns:repeat(10, minmax(0, 1fr)); gap:10px;
+  margin-top:28px; list-style:none;
+}
+.eras button{
+  all:unset; cursor:pointer; display:block; width:100%;
+}
+.eras .cover{ width:100%; border-color:rgba(var(--c1),.45); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.eras button:hover .cover, .eras button:focus-visible .cover{
+  transform:translateY(-4px); border-color:rgb(var(--c1));
+  box-shadow:0 10px 26px -6px rgba(var(--c1),.6);
+}
+.eras b{
+  display:block; margin-top:7px; font-family:var(--ef); font-weight:400; font-size:12.5px; line-height:1.15;
+  color:rgb(var(--c1)); overflow-wrap:break-word;
+}
+.eras small{ display:block; font-family:var(--mono); font-size:11px; opacity:.55; }
+.eras button:focus-visible{ outline:2px solid rgb(var(--c1)); outline-offset:4px; }
+
+/* ---- search and filters, pinned while scrolling ---- */
+.bar{
+  position:sticky; top:0; z-index:5;
+  background:rgba(var(--bg),.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(var(--accent),.18);
+}
+.bar::after{
+  /* a thin line in the colour of the era on screen */
+  content:''; position:absolute; left:0; right:0; bottom:-1px; height:1px;
+  background:linear-gradient(90deg, transparent, var(--glow), transparent);
+}
+.bar .wrap{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; padding-top:12px; padding-bottom:12px; }
+.search{
+  flex:1 1 240px; min-width:0;
+  font:inherit; font-family:var(--sans); font-size:14px;
+  color:rgb(var(--fg)); background:rgba(var(--accent),.08);
+  border:1px solid rgba(var(--accent),.35); padding:8px 12px; outline:none;
+}
+.search:focus{ border-color:rgba(var(--fg),.6); }
+.chips{ display:flex; flex-wrap:wrap; gap:6px; }
+.chip{
+  font-family:var(--mono); font-size:12px; color:rgb(var(--fg));
+  background:none; border:1px solid rgba(var(--accent),.35); padding:6px 10px;
+  cursor:pointer; transition:border-color .2s ease;
+}
+.chip:hover{ border-color:rgba(var(--fg),.6); }
+.chip[aria-pressed="true"]{ background:rgb(var(--fg)); color:rgb(var(--bg)); border-color:rgb(var(--fg)); }
+.chip:focus-visible, .search:focus-visible, summary:focus-visible{ outline:2px solid rgb(var(--gold)); outline-offset:2px; }
+.bar-actions{ display:flex; gap:6px; }
+.count{ font-family:var(--mono); font-size:11px; opacity:.5; width:100%; }
+
+/* ---- sections ---- */
+.group{ margin-top:52px; }
+.group h2{
+  font-family:var(--display); font-weight:400; letter-spacing:.05em;
+  font-size:44px; line-height:1;
+  display:flex; align-items:baseline; gap:12px;
+}
+.group h2 small{ font-family:var(--mono); font-size:12px; letter-spacing:0; opacity:.5; }
+/* singles: one band per album era, in that era's colour and face */
+.era-head{
+  display:flex; align-items:center; gap:14px;
+  margin:34px 0 0; padding:12px 14px;
+  background:linear-gradient(90deg, rgba(var(--c1),.2), rgba(var(--c2),.06) 60%, transparent);
+  border-left:3px solid rgb(var(--c1));
+}
+.era-head .cover{ width:42px; flex:none; border-color:rgba(var(--c1),.5); }
+.era-head span{ font-family:var(--ef); font-size:22px; line-height:1.1; color:rgb(var(--c1)); }
+.era-head small{ display:block; font-family:var(--mono); font-size:11px; color:rgb(var(--fg)); opacity:.55; margin-top:2px; }
+
+/* ---- release rows ---- */
+.release{
+  position:relative; border-bottom:1px solid rgba(var(--accent),.16);
+  scroll-margin-top:120px;
+}
+.group h2 + .release, .era-head + .release{ border-top:1px solid rgba(var(--accent),.16); margin-top:14px; }
+.era-head + .release{ margin-top:0; border-top:0; }
+/* a stripe of the era's colour that grows on hover and stays when open */
+.release::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:linear-gradient(180deg, rgb(var(--c1)), rgb(var(--c2)));
+  transform:scaleY(.0); transform-origin:top; transition:transform .3s ease;
+}
+.release:hover::before, .release.is-open::before{ transform:none; }
+.release > summary{
+  list-style:none; cursor:pointer;
+  display:grid; grid-template-columns:56px 1fr auto; gap:2px 16px; align-items:baseline;
+  padding:12px 4px 12px 14px;
+  transition:background .3s ease;
+}
+.release > summary:hover{ background:linear-gradient(90deg, rgba(var(--c1),.1), transparent 70%); }
+.release > summary::-webkit-details-marker, .track > summary::-webkit-details-marker{ display:none; }
+.cover{
+  position:relative; display:block; overflow:hidden; aspect-ratio:1/1;
+  background:linear-gradient(160deg, rgba(var(--c1, var(--accent)),.35), rgba(var(--c2, var(--accent2)),.15));
+  border:1px solid rgba(var(--accent),.3);
+}
+.cover img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.cover > span{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:var(--ef, var(--display)); letter-spacing:.06em; font-size:16px; opacity:.75;
+}
+.release > summary .cover{ grid-row:1 / span 2; align-self:center; width:56px; transition:border-color .25s ease, box-shadow .25s ease; }
+.release > summary:hover .cover, .release.is-open > summary .cover{ border-color:rgb(var(--c1)); box-shadow:0 0 18px -4px rgba(var(--c1),.7); }
+.r-title{
+  font-family:var(--sans); font-weight:600; font-size:19px; line-height:1.25; overflow-wrap:anywhere;
+  /* grows into the heading in step with the panel sliding open (and back) */
+  transition:color .2s ease, font-size .42s cubic-bezier(.2,.7,.2,1), line-height .42s cubic-bezier(.2,.7,.2,1), letter-spacing .42s ease, text-shadow .42s ease;
+}
+.r-sub{ transition:margin .42s cubic-bezier(.2,.7,.2,1), opacity .3s ease; }
+.release > summary:hover .r-title, .release.is-open > summary .r-title{ color:rgb(var(--c1)); }
+.r-sub{ grid-column:2; font-family:var(--mono); font-size:12px; opacity:.55; }
+.r-year{ grid-row:1; grid-column:3; font-family:var(--mono); font-size:13px; color:rgb(var(--c1)); opacity:.75; }
+/* studio albums get bigger art and their era's face even when closed */
+.release.is-album > summary{ grid-template-columns:84px 1fr auto; padding-top:16px; padding-bottom:16px; }
+.release.is-album > summary .cover{ width:84px; }
+.release.is-album .r-title{ font-family:var(--ef); font-weight:400; font-size:30px; line-height:1.05; letter-spacing:.01em; }
+.release.is-album .r-sub{ margin-top:4px; }
+
+/* ---- an open release: its cover blurred behind, its era's backdrop over that ---- */
+.r-body{
+  position:relative; isolation:isolate; overflow:hidden;
+  padding:26px 22px 30px; margin:0 0 18px 14px;
+  border:1px solid rgba(var(--c1),.22);
+  background:rgba(var(--bg),.55);
+}
+.r-bg{
+  position:absolute; inset:-80px; z-index:-2;
+  background-size:cover; background-position:center;
+  filter:blur(60px) saturate(1.4); opacity:.32;
+}
+.r-body::before{ content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; }
+.release.is-open > summary .r-title{
+  font-family:var(--ef); font-weight:400; color:rgb(var(--c1));
+  font-size:clamp(32px, 5.2vw, 58px); line-height:1.02; letter-spacing:.01em;
+  text-shadow:0 0 30px rgba(var(--c1),.35);
+}
+.release.is-open > summary .r-sub{ margin-top:6px; opacity:.75; }
+.r-top{ display:grid; grid-template-columns:240px 1fr; gap:26px; align-items:start; margin-bottom:8px; }
+.r-top .cover{ width:240px; border-color:rgba(var(--c1),.5); box-shadow:0 18px 40px -12px rgba(0,0,0,.8), 0 0 40px -10px rgba(var(--c1),.5); }
+.meta{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr));
+  gap:12px 24px; margin:0 0 16px;
+}
+.meta div{ min-width:0; }
+.meta dt{ font-family:var(--mono); font-size:11px; color:rgb(var(--c1, var(--accent))); opacity:.85; }
+.meta dd{ font-family:var(--sans); font-size:14px; line-height:1.4; overflow-wrap:anywhere; }
+.meta dd strong{ font-weight:700; font-size:15px; }
+.meta dd .also{ display:block; margin-top:3px; font-size:12px; opacity:.6; }
+.prose p{ margin-top:10px; opacity:.92; }
+.prose p:first-child{ margin-top:0; }
+.prose{ margin-top:8px; }
+.wiki{
+  display:inline-block; margin-top:14px; font-family:var(--mono); font-size:12px;
+  color:rgb(var(--c1, var(--fg))); text-decoration:none; border-bottom:1px solid rgba(var(--c1, var(--fg)),.4);
+}
+.wiki:hover{ border-bottom-color:rgb(var(--c1, var(--fg))); }
+
+/* ---- track list ---- */
+.tracks{ list-style:none; margin-top:26px; counter-reset:tr; border-top:1px solid rgba(var(--c1),.25); }
+.tracks > li{ counter-increment:tr; border-bottom:1px solid rgba(var(--fg),.08); }
+.track > summary{
+  list-style:none; cursor:pointer;
+  display:grid; grid-template-columns:2.4em 1fr auto; gap:0 10px; align-items:baseline;
+  padding:9px 6px; transition:background .2s ease;
+}
+.track > summary::before{
+  content:counter(tr, decimal-leading-zero);
+  font-family:var(--mono); font-size:12px; color:rgb(var(--c1)); opacity:.8;
+}
+.track > summary:hover{ background:rgba(var(--c1),.08); }
+.track > summary:hover .t-name, .track[open] > summary .t-name{ color:rgb(var(--c1)); }
+.t-name{ font-family:var(--sans); font-size:15px; line-height:1.35; min-width:0; overflow-wrap:anywhere; }
+.t-v{ font-family:var(--mono); font-size:12px; opacity:.6; margin-left:6px; }
+.t-b{
+  display:inline-block; margin-left:6px; padding:0 5px;
+  font-family:var(--mono); font-size:10.5px; vertical-align:1px;
+  border:1px solid rgba(var(--c2),.6); color:rgb(var(--c2));
+}
+.t-len{ font-family:var(--mono); font-size:12px; opacity:.55; }
+.track.no-info > summary{ cursor:default; }
+.track.no-info > summary:hover{ background:none; }
+.track.no-info > summary:hover .t-name{ color:inherit; }
+.song{
+  margin:2px 0 14px calc(2.4em + 16px); padding:14px 16px 16px;
+  border-left:2px solid rgb(var(--c1));
+  background:linear-gradient(90deg, rgba(var(--c1),.09), transparent 80%);
+}
+.song .meta{ grid-template-columns:repeat(auto-fill, minmax(170px, 1fr)); margin-bottom:12px; }
+.song .prose p{ font-size:16px; }
+.song-of{ font-family:var(--mono); font-size:12px; opacity:.7; margin-bottom:10px; }
+.empty{ margin:60px 0; font-family:var(--mono); font-size:13px; opacity:.6; text-align:center; }
+.end{ height:80px; }
+
+/* ---- era backdrops, drawn over the blurred cover ---- */
+/* before Showbiz: cassette demos, lined like a tape inlay */
+[data-era="early"] .r-body::before{
+  background:
+    repeating-linear-gradient(180deg, transparent 0 27px, rgba(var(--c1),.12) 27px 28px),
+    radial-gradient(circle at 20% 0%, rgba(var(--c1),.18), transparent 60%);
+}
+/* Showbiz: deep water, light rippling down from the surface */
+[data-era="showbiz"] .r-body::before{
+  background:
+    repeating-radial-gradient(ellipse 140% 40% at 50% -10%, rgba(var(--c1),.09) 0 2px, transparent 2px 26px),
+    linear-gradient(180deg, rgba(var(--c1),.22), rgba(var(--c2),.12) 45%, transparent);
+}
+/* Origin of Symmetry: the cover's poles against hard yellow */
+[data-era="oos"] .r-body::before{
+  background:
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(var(--c2),.06) 46px 48px, transparent 48px 94px),
+    linear-gradient(180deg, rgba(var(--c1),.16), transparent 50%);
+}
+[data-era="oos"] .r-bg{ opacity:.16; }
+/* Hullabaloo: stage lights fanning down onto a green-lit room */
+[data-era="hullabaloo"] .r-body::before{
+  background:
+    conic-gradient(from 160deg at 50% -20%, transparent 0deg, rgba(var(--c1),.2) 8deg, transparent 16deg, transparent 22deg, rgba(var(--c1),.14) 30deg, transparent 38deg),
+    radial-gradient(ellipse at 50% 0%, rgba(var(--c1),.25), transparent 65%);
+}
+/* Absolution: a pale sky with long shadows falling across it */
+[data-era="absolution"] .r-body::before{
+  background:
+    repeating-linear-gradient(115deg, transparent 0 70px, rgba(0,0,0,.18) 70px 74px, transparent 74px 160px),
+    linear-gradient(180deg, rgba(var(--c1),.25), rgba(var(--c2),.08) 60%, transparent);
+}
+/* Black Holes and Revelations: blue sky down to red desert */
+[data-era="bhr"] .r-body::before{
+  background:linear-gradient(180deg, rgba(var(--c2),.3) 0%, rgba(var(--c2),.08) 40%, rgba(var(--c1),.12) 62%, rgba(var(--c1),.3) 100%);
+}
+/* The Resistance: the cover's spectrum ring, off to one side */
+[data-era="resistance"] .r-body::before{
+  background:
+    conic-gradient(from 0deg at 90% 0%, rgba(255,70,70,.45), rgba(255,200,40,.45), rgba(60,220,120,.45), rgba(40,160,255,.45), rgba(170,80,255,.45), rgba(255,70,70,.45));
+  -webkit-mask:radial-gradient(circle at 90% 0%, transparent 0 120px, #000 124px 200px, transparent 204px, rgba(0,0,0,.35) 206px, transparent 420px);
+          mask:radial-gradient(circle at 90% 0%, transparent 0 120px, #000 124px 200px, transparent 204px, rgba(0,0,0,.35) 206px, transparent 420px);
+}
+/* The 2nd Law: a spectrum running through it, like the cover's brain */
+[data-era="2ndlaw"] .r-body::before{
+  background:
+    linear-gradient(90deg, #ff2d55, #ff9f0a, #ffd60a, #30d158, #64d2ff, #5e5ce6, #bf5af2) top / 100% 3px no-repeat,
+    radial-gradient(ellipse at 80% 0%, rgba(var(--c1),.2), transparent 60%),
+    radial-gradient(ellipse at 10% 20%, rgba(var(--c2),.16), transparent 55%);
+}
+/* Drones: a radar screen, cold grey with a red edge */
+[data-era="drones"] .r-body::before{
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 4px),
+    repeating-radial-gradient(circle at 100% 0%, transparent 0 58px, rgba(var(--c1),.16) 58px 59px),
+    linear-gradient(180deg, rgba(var(--c1),.12), transparent 50%);
+}
+/* Simulation Theory: a synthwave sunset over a neon grid */
+[data-era="sim"] .r-body::before{
+  background:
+        linear-gradient(180deg, rgba(var(--c2),.3), rgba(var(--c1),.1) 420px, transparent 900px);
+}
+/* the sun: a striped disc setting on a neon grid, under the track list */
+[data-era="sim"] .r-body{ padding-bottom:230px; }
+[data-era="sim"] .tracks{ position:relative; }
+[data-era="sim"] .tracks::before{
+  content:''; position:absolute; z-index:-1; pointer-events:none;
+  left:50%; top:calc(100% + 40px); width:170px; height:170px; margin-left:-85px; border-radius:50%;
+  background:linear-gradient(180deg, #ffd25a, #ff5a8c 55%, #c43cff);
+  -webkit-mask:linear-gradient(180deg, #000 0 46%, transparent 46% 51%, #000 51% 59%, transparent 59% 64%, #000 64% 70%, transparent 70%);
+          mask:linear-gradient(180deg, #000 0 46%, transparent 46% 51%, #000 51% 59%, transparent 59% 64%, #000 64% 70%, transparent 70%);
+  opacity:.6; filter:drop-shadow(0 0 26px rgba(255,90,170,.6));
+}
+[data-era="sim"] .tracks::after{
+  content:''; position:absolute; z-index:-1; pointer-events:none;
+  left:-12%; right:-12%; top:calc(100% + 40px + 119px); height:120px;
+  background:
+    repeating-linear-gradient(90deg, rgba(var(--c1),.6) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(180deg, rgba(var(--c1),.6) 0 1px, transparent 1px 18px);
+  transform:perspective(220px) rotateX(58deg); transform-origin:top;
+  -webkit-mask:linear-gradient(180deg, #000, transparent 95%);
+          mask:linear-gradient(180deg, #000, transparent 95%);
+  opacity:.55;
+}
+/* Will of the People: embers rising out of the dark */
+[data-era="wotp"] .r-body::before{
+  background:
+    radial-gradient(2px 2px at 12% 78%, rgba(255,200,120,.8), transparent),
+    radial-gradient(2px 2px at 34% 64%, rgba(255,170,90,.7), transparent),
+    radial-gradient(1.5px 1.5px at 58% 84%, rgba(255,210,140,.8), transparent),
+    radial-gradient(2px 2px at 76% 70%, rgba(255,150,70,.7), transparent),
+    radial-gradient(1.5px 1.5px at 90% 88%, rgba(255,200,120,.7), transparent),
+    radial-gradient(ellipse at 50% 120%, rgba(var(--c1),.45), rgba(var(--c2),.2) 45%, transparent 75%);
+}
+/* The Wow! Signal: deep space, and the signal's code printed across it */
+[data-era="wow"] .r-body::before{
+  background:
+    radial-gradient(1px 1px at 8% 14%, #fff, transparent), radial-gradient(1px 1px at 23% 62%, #fff, transparent),
+    radial-gradient(1px 1px at 41% 28%, #fff, transparent), radial-gradient(1.5px 1.5px at 57% 76%, #fff, transparent),
+    radial-gradient(1px 1px at 71% 18%, #fff, transparent), radial-gradient(1px 1px at 86% 54%, #fff, transparent),
+    radial-gradient(1px 1px at 94% 8%, #fff, transparent), radial-gradient(1px 1px at 33% 90%, #fff, transparent),
+    radial-gradient(1px 1px at 15% 40%, rgba(255,255,255,.7), transparent), radial-gradient(1px 1px at 48% 8%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1px 1px at 64% 44%, rgba(255,255,255,.7), transparent), radial-gradient(1px 1px at 79% 86%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1px 1px at 5% 72%, rgba(255,255,255,.7), transparent), radial-gradient(1.5px 1.5px at 27% 22%, rgba(180,200,255,.9), transparent),
+    radial-gradient(ellipse 120% 60% at 50% -30%, rgba(var(--c1),.3), transparent 60%);
+  opacity:.9;
+}
+[data-era="wow"] .r-body::after{
+  content:'6EQUJ5'; position:absolute; right:-10px; bottom:-30px; z-index:-1; pointer-events:none;
+  font-family:'Space Mono', monospace; font-weight:700; font-size:clamp(70px, 14vw, 170px); letter-spacing:.08em;
+  color:rgba(var(--c1),.07);
+}
+/* the faces that read best in caps */
+[data-era="resistance"].is-open .r-title, .is-album[data-era="resistance"] .r-title,
+[data-era="drones"].is-open .r-title, .is-album[data-era="drones"] .r-title,
+[data-era="wotp"].is-open .r-title, .is-album[data-era="wotp"] .r-title,
+[data-era="absolution"].is-open .r-title, .is-album[data-era="absolution"] .r-title{ text-transform:uppercase; }
+[data-era="resistance"].is-open .r-title, .is-album[data-era="resistance"] .r-title{ font-weight:300; letter-spacing:.12em; }
+
+@media (max-width:900px){
+  .top-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:760px){
+  .members{ grid-template-columns:1fr; }
+  .m-photo{ aspect-ratio:16/10; }
+  .eras{ grid-template-columns:repeat(5, minmax(0, 1fr)); }
+}
+@media (max-width:600px){
+  body{ font-size:16px; }
+  .top{ padding-top:34px; }
+  .eras{ display:flex; overflow-x:auto; gap:10px; padding-bottom:6px; scroll-snap-type:x mandatory; }
+  .eras li{ flex:0 0 84px; min-width:0; scroll-snap-align:start; }
+  .release > summary{ grid-template-columns:48px 1fr auto; gap:2px 12px; padding-left:10px; }
+  .release > summary .cover{ width:48px; }
+  .release.is-album > summary{ grid-template-columns:64px 1fr auto; }
+  .release.is-album > summary .cover{ width:64px; }
+  .release.is-album .r-title{ font-size:23px; }
+  .r-body{ margin-left:0; padding:20px 14px 24px; }
+  .r-top{ grid-template-columns:1fr; }
+  .r-top .cover{ width:min(240px, 70vw); }
+  .song{ margin-left:0; }
+  .release{ scroll-margin-top:200px; }
+  .era-head span{ font-size:19px; }
+}
+@media (prefers-reduced-motion: no-preference){
+}
+@media (prefers-reduced-motion: reduce){
+  .top h1{ animation:none; }
+  body{ transition:none; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-wall" id="wall" aria-hidden="true"></div>
+  <div class="wrap">
+    <a class="back" href="https://arnavpodichetty.com/#fav/music">&larr; arnavpodichetty.com</a>
+    <div class="top-grid">
+    <div class="top-text">
+    <h1>Muse</h1>
+    <p>Muse is an English rock band from Teignmouth, Devon, formed in 1994: Matthew Bellamy on vocals, guitar and piano, Christopher Wolstenholme on bass and Dominic Howard on drums. Their sound runs from alternative and progressive rock into electronica and classical music, carried by Bellamy's falsetto and their huge stadium shows. They've won two Grammys for Best Rock Album, for <i>The Resistance</i> and <i>Drones</i>.</p>
+    <div class="stats" id="stats"></div>
+    </div>
+    <figure class="band-photo">
+      <img src="band/muse.jpg" alt="Muse on stage: Matt Bellamy singing, Dominic Howard on drums and Chris Wolstenholme on bass" width="1300" height="730">
+      <figcaption>Hammersmith Apollo, London, 2022 · <a href="https://commons.wikimedia.org/wiki/File:MuseHammsmith100522_(47_of_76)_(52089636284).jpg" target="_blank" rel="noopener">Raph_PH, CC BY 2.0</a></figcaption>
+    </figure>
+    </div>
+    <!-- the three members; photos by Markus Felix (CC BY-SA 4.0) via Wikimedia Commons -->
+    <ul class="members" aria-label="Band members">
+      <li style="--c1:255,66,206">
+        <a class="m-photo" href="https://commons.wikimedia.org/wiki/File:20180603_N%C3%BCrnberg_Rock_im_Park_Muse_0382.jpg" target="_blank" rel="noopener" title="Photo: Markus Felix, CC BY-SA 4.0"><img src="band/bellamy.jpg" alt="Matt Bellamy singing and playing guitar" loading="lazy" style="object-position:50% 18%"></a>
+        <div class="m-text"><b>Matt Bellamy</b><span>Lead vocals, guitar, piano</span></div>
+      </li>
+      <li style="--c1:84,182,236">
+        <a class="m-photo" href="https://commons.wikimedia.org/wiki/File:2018_Chris_Wolstenholme_(cropped).jpg" target="_blank" rel="noopener" title="Photo: Markus Felix, CC BY-SA 4.0"><img src="band/wolstenholme.jpg" alt="Chris Wolstenholme playing bass" loading="lazy" style="object-position:50% 14%"></a>
+        <div class="m-text"><b>Chris Wolstenholme</b><span>Bass, backing vocals</span></div>
+      </li>
+      <li style="--c1:247,176,0">
+        <a class="m-photo" href="https://commons.wikimedia.org/wiki/File:20180603_N%C3%BCrnberg_Rock_im_Park_Muse_0304.jpg" target="_blank" rel="noopener" title="Photo: Markus Felix, CC BY-SA 4.0"><img src="band/howard.jpg" alt="Dominic Howard playing drums" loading="lazy" style="object-position:62% 30%"></a>
+        <div class="m-text"><b>Dominic Howard</b><span>Drums, percussion</span></div>
+      </li>
+    </ul>
+    <p class="m-credit">Member photos: Markus Felix (PushingPixels), CC BY-SA 4.0, via Wikimedia Commons.</p>
+    <ol class="eras" id="eras" aria-label="Studio albums"></ol>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <input class="search" id="q" type="search" placeholder="Search songs and releases" aria-label="Search songs and releases" autocomplete="off">
+    <div class="chips" id="chips" role="group" aria-label="Show"></div>
+    <div class="bar-actions">
+      <button class="chip" type="button" id="expand">Open all</button>
+    </div>
+    <div class="count" id="count" aria-live="polite"></div>
+  </div>
+</div>
+
+<main class="wrap" id="list"></main>
+<div class="end"></div>
+
+<script src="data/muse.js"></script>
+<script>
+(function () {
+  var M = window.MUSE;
+  if (!M) return;
+  var SONGS = M.songs;
+  var GROUPS = [
+    { type: 'album', name: 'Studio albums', chip: 'Albums' },
+    { type: 'EP', name: 'EPs', chip: 'EPs' },
+    { type: 'single', name: 'Singles', chip: 'Singles' },
+    { type: 'live', name: 'Live', chip: 'Live' },
+    { type: 'demo', name: 'Demos', chip: 'Demos' }
+  ];
+  // each era's colours (r,g,b) and display face, taken from its album art
+  var THEMES = {
+    early: { name: 'The early years', c1: '214,180,120', c2: '150,118,80', ef: "'Special Elite', monospace" },
+    showbiz: { name: 'Showbiz', c1: '84,182,236', c2: '40,96,170', ef: "'Cormorant Garamond', serif" },
+    oos: { name: 'Origin of Symmetry', c1: '247,176,0', c2: '225,225,215', ef: "'Archivo Black', sans-serif" },
+    hullabaloo: { name: 'Hullabaloo', c1: '44,196,164', c2: '20,120,100', ef: "'Bebas Neue', sans-serif" },
+    absolution: { name: 'Absolution', c1: '184,202,220', c2: '110,130,152', ef: "'Cinzel', serif" },
+    bhr: { name: 'Black Holes and Revelations', c1: '232,82,46', c2: '76,130,214', ef: "'DM Serif Display', serif" },
+    resistance: { name: 'The Resistance', c1: '255,112,84', c2: '72,196,226', ef: "'Josefin Sans', sans-serif" },
+    '2ndlaw': { name: 'The 2nd Law', c1: '255,64,176', c2: '64,214,255', ef: "'Major Mono Display', monospace" },
+    drones: { name: 'Drones', c1: '214,48,48', c2: '170,174,180', ef: "'Share Tech Mono', monospace" },
+    sim: { name: 'Simulation Theory', c1: '255,66,206', c2: '120,84,255', ef: "'Audiowide', sans-serif" },
+    wotp: { name: 'Will of the People', c1: '255,116,44', c2: '176,36,20', ef: "'Anton', sans-serif" },
+    wow: { name: 'The Wow! Signal', c1: '255,176,96', c2: '140,160,255', ef: "'Space Mono', monospace" }
+  };
+  var ALBUM_ERA = {
+    'Showbiz': 'showbiz', 'Origin of Symmetry': 'oos', 'Absolution': 'absolution',
+    'Black Holes and Revelations': 'bhr', 'The Resistance': 'resistance', 'The 2nd Law': '2ndlaw',
+    'Drones': 'drones', 'Simulation Theory': 'sim', 'Will of the People': 'wotp', 'The Wow! Signal': 'wow',
+    'Hullabaloo': 'hullabaloo'
+  };
+  // singles sit under the album they were taken from, in release order
+  var ERAS = ['Showbiz', 'Origin of Symmetry', 'Hullabaloo', 'Absolution', 'Black Holes and Revelations',
+    'The Resistance', 'The 2nd Law', 'Drones', 'Simulation Theory', 'Will of the People', 'The Wow! Signal'];
+  var eraOf = function (r) {
+    var a = (r.album || '').toLowerCase();
+    for (var i = ERAS.length - 1; i >= 0; i--) if (a.indexOf(ERAS[i].toLowerCase()) > -1) return ERAS[i];
+    // the few singles whose page names no album
+    var t = r.title;
+    if (/Dead Star|In Your World/.test(t)) return 'Hullabaloo';
+    if (/Sing for Absolution|Stockholm|Time Is Running|Hysteria|Apocalypse|Butterflies/.test(t)) return 'Absolution';
+    if (/Undisclosed|MK ULTRA|Uprising|Resistance|Eurasia|Exogenesis|Neutron/.test(t)) return 'The Resistance';
+    if (/Supremacy|Big Freeze|Panic Station/.test(t)) return 'The 2nd Law';
+    if (/Kill or Be Killed|Euphoria|Ghosts/.test(t)) return 'Will of the People';
+    if (/Unravelling|Hush|Cryogen|Hexagons|Nightshift|Be With You/.test(t)) return 'The Wow! Signal';
+    return 'Other';
+  };
+  // every release's era: albums and singles by album, the rest by title or year
+  var themeOf = function (r) {
+    if (r.type === 'album') return ALBUM_ERA[r.title];
+    if (r.type === 'single') return ALBUM_ERA[eraOf(r)] || 'early';
+    if (r.type === 'demo') return 'early';
+    var t = r.title;
+    if (/Hullabaloo/.test(t)) return 'hullabaloo';
+    if (/Summer Stadiums/.test(t)) return 'resistance';
+    if (/Koln|Drones/.test(t)) return 'drones';
+    if (/Simulation|Spotify/.test(t)) return 'sim';
+    var y = +(r.date || '0').slice(0, 4);
+    return y < 1999 ? 'showbiz' : y <= 2000 ? 'showbiz' : y <= 2001 ? 'oos' : y <= 2005 ? 'absolution'
+      : y <= 2008 ? 'bhr' : y <= 2011 ? 'resistance' : y <= 2014 ? '2ndlaw' : y <= 2017 ? 'drones'
+      : y <= 2021 ? 'sim' : y <= 2024 ? 'wotp' : 'wow';
+  };
+  var themeStyle = function (k) {
+    var th = THEMES[k];
+    return '--c1:' + th.c1 + ';--c2:' + th.c2 + ';--ef:' + th.ef;
+  };
+  var fold = function (s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[’']/g, "'"); };
+  var esc = function (s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+  };
+  var year = function (r) { return (r.date || '').slice(0, 4); };
+  var paras = function (t) {
+    return (t || '').split(/\n\n+/).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+  };
+  var metaList = function (rows) {
+    var html = rows.filter(function (r) { return r[1]; }).map(function (r) {
+      return '<div><dt>' + r[0] + '</dt><dd>' + (r[2] || esc(r[1])) + '</dd></div>';
+    }).join('');
+    return html ? '<dl class="meta">' + html + '</dl>' : '';
+  };
+  // r.img is a local copy in covers/; thumbnails load lazily
+  var cover = function (r, thumb) {
+    var inner = r.img
+      ? '<img src="' + esc(r.img) + '" alt="' + (thumb ? '' : esc(r.title) + ' cover') + '"' +
+        (thumb ? ' loading="lazy"' : '') + ' decoding="async" width="300" height="300">'
+      : '<span>' + esc(r.title.replace(/[^A-Za-z0-9 ]/g, '').split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 3)) + '</span>';
+    return '<span class="cover">' + inner + '</span>';
+  };
+  // ---- dropdowns slide open and shut rather than snapping ----
+  // <details> can't animate its own height, so its panel's height, padding
+  // and margin run from zero to their natural size (and back on close)
+  var calm = matchMedia('(prefers-reduced-motion: reduce)');
+  var bulk = false;   // "Open all" opens dozens at once; those just appear
+  var frames = function (el) {
+    var cs = getComputedStyle(el);
+    var shut = { height: '0px', paddingTop: '0px', paddingBottom: '0px', marginTop: '0px', marginBottom: '0px', opacity: 0 };
+    var full = { height: el.offsetHeight + 'px', paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom,
+      marginTop: cs.marginTop, marginBottom: cs.marginBottom, opacity: 1 };
+    return [shut, full];
+  };
+  // then() runs once, when the animation ends or a moment after it should
+  // have (finish events can stall, e.g. in a background tab)
+  var slide = function (el, f, ms, then) {
+    el.style.overflow = 'hidden';
+    var a = el.animate(f, { duration: ms, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    var done = false;
+    var end = function () {
+      if (done) return;
+      done = true;
+      if (a.playState === 'running') a.finish();
+      el.style.overflow = '';
+      if (then && a.playState !== 'idle') then();
+    };
+    a.onfinish = end;
+    a.oncancel = function () { done = true; el.style.overflow = ''; };
+    setTimeout(end, ms + 80);
+    return a;
+  };
+  var slideOpen = function (d, el) {
+    if (!el || bulk || calm.matches) return;
+    if (d._anim) d._anim.cancel();
+    d._anim = slide(el, frames(el), el.classList.contains('song') ? 260 : 420);
+  };
+  var slideShut = function (d, el) {
+    // the heading starts shrinking as the panel starts closing
+    d.classList.remove('is-open');
+    if (!el || calm.matches) { d.open = false; return; }
+    if (d._anim) d._anim.cancel();
+    var f = frames(el).reverse();
+    d._anim = slide(el, f, el.classList.contains('song') ? 200 : 320, function () {
+      d._anim = null;
+      d.open = false;
+    });
+  };
+  // clicking an open summary plays the close before the panel goes
+  document.addEventListener('click', function (e) {
+    var s = e.target.closest('.release > summary, .track > summary');
+    if (!s) return;
+    var d = s.parentElement;
+    if (!d.open || d.classList.contains('no-info')) return;
+    e.preventDefault();
+    slideShut(d, d.querySelector(d.classList.contains('track') ? '.song' : '.r-body'));
+  });
+  var TYPE_NAME = { album: 'Studio album', EP: 'EP', single: 'Single', live: 'Live release', demo: 'Demo' };
+  var albums = M.releases.filter(function (r) { return r.type === 'album'; });
+  var albumByEra = {};
+  albums.forEach(function (r) { albumByEra[r.title] = r; });
+
+  // ---- hero: stats, the cover wash and the album timeline ----
+  var tally = {};
+  M.releases.forEach(function (r) { tally[r.type] = (tally[r.type] || 0) + 1; });
+  var trackCount = M.releases.reduce(function (n, r) { return n + (r.tracks || []).length; }, 0);
+  document.getElementById('stats').innerHTML = [
+    tally.album + ' studio albums', tally.EP + ' EPs', tally.single + ' singles',
+    tally.live + ' live releases', tally.demo + ' demos',
+    Object.keys(SONGS).length + ' songs', trackCount + ' tracks'
+  ].map(function (s) { return '<span>' + s + '</span>'; }).join('');
+  document.getElementById('wall').innerHTML = albums.map(function (r) {
+    return r.img ? '<img src="' + esc(r.img) + '" alt="">' : '';
+  }).join('');
+  var erasEl = document.getElementById('eras');
+  albums.forEach(function (r) {
+    var li = document.createElement('li');
+    li.setAttribute('style', themeStyle(ALBUM_ERA[r.title]));
+    li.innerHTML = '<button type="button" aria-label="' + esc(r.title) + ', ' + year(r) + '">' + cover(r, false) +
+      '<b>' + esc(r.title) + '</b><small>' + year(r) + '</small></button>';
+    li.firstChild.addEventListener('click', function () { openRelease(r.id); });
+    erasEl.appendChild(li);
+  });
+
+  // ---- build the list ----
+  var list = document.getElementById('list');
+  var cards = [];
+  GROUPS.forEach(function (g) {
+    var rs = M.releases.filter(function (r) { return r.type === g.type; });
+    if (!rs.length) return;
+    var sec = document.createElement('section');
+    sec.className = 'group';
+    sec.dataset.type = g.type;
+    sec.innerHTML = '<h2>' + g.name + ' <small>' + rs.length + '</small></h2>';
+    var lastEra = null;
+    rs.forEach(function (r) {
+      var k = themeOf(r);
+      if (g.type === 'single') {
+        var era = eraOf(r);
+        if (era !== lastEra) {
+          var h = document.createElement('div');
+          h.className = 'era-head';
+          h.dataset.era = era;
+          h.setAttribute('style', themeStyle(k));
+          var al = albumByEra[era];
+          var n = rs.filter(function (x) { return eraOf(x) === era; }).length;
+          h.innerHTML = (al ? cover(al, true) : '') + '<div><span>' + esc(era) + '</span><small>' +
+            (al ? 'Studio album, ' + year(al) : 'Live album, 2002') + ' · ' + n + (n === 1 ? ' single' : ' singles') + '</small></div>';
+          sec.appendChild(h);
+          lastEra = era;
+        }
+        r._era = era;
+      }
+      var d = document.createElement('details');
+      d.className = 'release' + (r.type === 'album' ? ' is-album' : '');
+      d.id = r.id;
+      d.dataset.era = k;
+      d.setAttribute('style', themeStyle(k));
+      var n = (r.tracks || []).length;
+      var sub = [TYPE_NAME[r.type], n + (n === 1 ? ' track' : ' tracks')];
+      if (r.len) sub.push(r.len.split(/[;,(]/)[0].trim());
+      if (r.type !== 'album' && r.type !== 'single') sub.push(THEMES[k].name + ' era');
+      d.innerHTML = '<summary>' + cover(r, true) + '<span class="r-title">' + esc(r.title) + '</span>' +
+        '<span class="r-year">' + esc(year(r)) + '</span>' +
+        '<span class="r-sub">' + esc(sub.join(' · ')) + '</span></summary>';
+      sec.appendChild(d);
+      // the body is built the first time it opens: 87 releases, 500+ tracks
+      d.addEventListener('toggle', function () {
+        d.classList.toggle('is-open', d.open);
+        if (d.open) { fill(d, r); slideOpen(d, d.querySelector('.r-body')); }
+      });
+      cards.push({ el: d, r: r, sec: sec, k: k,
+        text: fold([r.title, r.album, r.p, r.w].join(' ')),
+        tracks: (r.tracks || []).map(function (t) { return fold([t.t, t.v, t.s && SONGS[t.s] && SONGS[t.s].alt].join(' ')); }) });
+    });
+    list.appendChild(sec);
+  });
+  var none = document.createElement('p');
+  none.className = 'empty';
+  none.textContent = 'Nothing matches that.';
+  none.hidden = true;
+  list.appendChild(none);
+
+  var fill = function (d, r) {
+    if (d._filled) return;
+    d._filled = true;
+    var body = document.createElement('div');
+    body.className = 'r-body';
+    // the first date MuseWiki lists is the main release; the rest are other
+    // countries, formats and reissues
+    var ds = r.dates && r.dates.length ? r.dates : [r.date];
+    var datesHtml = '<strong>' + esc(ds[0]) + '</strong>' +
+      (ds.length > 1 ? '<span class="also">Also ' + esc(ds.slice(1).join('; ')) + '</span>' : '');
+    body.innerHTML = (r.img ? '<div class="r-bg" style="background-image:url(\'' + esc(r.img) + '\')"></div>' : '') +
+      '<div class="r-top">' + cover(r, false) + metaList([
+      ['Released', ds[0], datesHtml], ['Label', r.label], ['Produced by', r.p], ['Written by', r.w],
+      ['Recorded', r.rec], ['Length', r.len], ['Chart peak', r.ch], ['Artwork', r.art], ['Formats', r.fmt],
+      ['From', r.type === 'single' ? r.album : '']
+    ]) + '</div><div class="prose">' + paras(r.info) + '</div>' +
+      '<a class="wiki" href="' + esc(r.url) + '" target="_blank" rel="noopener">Read more on MuseWiki &rarr;</a>';
+    var ol = document.createElement('ol');
+    ol.className = 'tracks';
+    (r.tracks || []).forEach(function (t) {
+      var li = document.createElement('li');
+      var s = t.s && SONGS[t.s];
+      var td = document.createElement('details');
+      td.className = 'track' + (s ? '' : ' no-info');
+      td.innerHTML = '<summary><span class="t-name">' + esc(t.t) +
+        (t.v ? '<span class="t-v">' + esc(t.v) + '</span>' : '') +
+        (t.b ? '<span class="t-b">bonus · ' + esc(t.b) + '</span>' : '') +
+        '</span><span class="t-len">' + esc(t.len || (s && !t.v ? ((s.len || '').match(/\d+:\d\d/) || [''])[0] : '')) + '</span></summary>';
+      if (s) td.addEventListener('toggle', function () { if (td.open) { fillSong(td, t, s); slideOpen(td, td.querySelector('.song')); } });
+      else td.addEventListener('click', function (e) { if (e.target.closest('summary')) e.preventDefault(); });
+      li.appendChild(td);
+      ol.appendChild(li);
+    });
+    body.appendChild(ol);
+    d.appendChild(body);
+    d._tracks = ol.children;
+    applyTrackFilter(d);
+  };
+  var fillSong = function (td, t, s) {
+    if (td._filled) return;
+    td._filled = true;
+    var box = document.createElement('div');
+    box.className = 'song';
+    var base = fold(s.n), shown = fold(t.t + ' ' + (t.v || ''));
+    var of = (t.v || shown.indexOf(base) !== 0 || shown.trim() !== base)
+      ? '<p class="song-of">A version of “' + esc(s.n) + '”. The notes below are on the song.</p>' : '';
+    box.innerHTML = of + metaList([
+      ['Length', s.len], ['Written by', s.w], ['Produced by', s.p], ['Recorded', s.rec],
+      ['First played live', s.first], ['Chart peak', s.ch], ['Also known as', s.alt]
+    ]) + '<div class="prose">' + paras(s.info) + '</div>' +
+      '<a class="wiki" href="' + esc(s.url) + '" target="_blank" rel="noopener">“' + esc(s.n) + '” on MuseWiki &rarr;</a>';
+    td.appendChild(box);
+  };
+  var openRelease = function (id) {
+    var c = cards.filter(function (x) { return x.r.id === id; })[0];
+    if (!c) return;
+    if (c.el.hidden) { q.value = ''; setType(''); }
+    fill(c.el, c.r);
+    c.el.open = true;
+    c.el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  };
+
+  // ---- the page glow takes the colour of the era in view ----
+  if ('IntersectionObserver' in window) {
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) document.body.style.setProperty('--glow', 'rgb(' + THEMES[e.target.dataset.era].c1 + ')');
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    cards.forEach(function (c) { seen.observe(c.el); });
+  }
+
+  // ---- filters ----
+  var q = document.getElementById('q');
+  var chips = document.getElementById('chips');
+  var count = document.getElementById('count');
+  var type = '';
+  var setType = function (t) {
+    type = t;
+    Array.prototype.forEach.call(chips.children, function (c) { c.setAttribute('aria-pressed', c.dataset.type === t ? 'true' : 'false'); });
+    apply();
+  };
+  [{ type: '', chip: 'All' }].concat(GROUPS).forEach(function (g) {
+    var b = document.createElement('button');
+    b.className = 'chip';
+    b.type = 'button';
+    b.textContent = g.chip;
+    b.dataset.type = g.type;
+    b.setAttribute('aria-pressed', g.type === type ? 'true' : 'false');
+    b.addEventListener('click', function () { setType(g.type); });
+    chips.appendChild(b);
+  });
+  var words = function () { return fold(q.value.trim()).split(/\s+/).filter(Boolean); };
+  var hits = function (text, ws) { return ws.every(function (w) { return text.indexOf(w) > -1; }); };
+  // while searching, an open release shows only its matching tracks
+  var applyTrackFilter = function (d) {
+    if (!d._tracks) return;
+    var c = cards.filter(function (x) { return x.el === d; })[0];
+    var ws = words();
+    var all = !ws.length || hits(c.text, ws);
+    Array.prototype.forEach.call(d._tracks, function (li, i) { li.hidden = !all && !hits(c.tracks[i], ws); });
+  };
+  var apply = function () {
+    var ws = words();
+    var shown = 0, songHits = 0;
+    cards.forEach(function (c) {
+      var typeOk = !type || c.r.type === type;
+      var self = !ws.length || hits(c.text, ws);
+      var tr = ws.length ? c.tracks.filter(function (t) { return hits(t, ws); }).length : 0;
+      var ok = typeOk && (self || tr > 0);
+      c.el.hidden = !ok;
+      if (ok) { shown++; songHits += tr; }
+      // open releases that match on a song so the hit is visible
+      if (ok && ws.length && tr && !self) { c.el.open = true; fill(c.el, c.r); }
+      applyTrackFilter(c.el);
+    });
+    document.querySelectorAll('.group').forEach(function (sec) {
+      var any = sec.querySelector('.release:not([hidden])');
+      sec.hidden = !any;
+      sec.querySelectorAll('.era-head').forEach(function (h) {
+        var era = h.dataset.era;
+        h.hidden = !cards.some(function (c) { return c.sec === sec && c.r._era === era && !c.el.hidden; });
+      });
+    });
+    none.hidden = shown > 0;
+    count.textContent = ws.length
+      ? shown + (shown === 1 ? ' release' : ' releases') + (songHits ? ', ' + songHits + ' matching ' + (songHits === 1 ? 'track' : 'tracks') : '')
+      : '';
+  };
+  var t0;
+  q.addEventListener('input', function () { clearTimeout(t0); t0 = setTimeout(apply, 120); });
+  q.addEventListener('keydown', function (e) { if (e.key === 'Escape') { q.value = ''; apply(); } });
+
+  var expand = document.getElementById('expand');
+  expand.addEventListener('click', function () {
+    var open = expand.textContent === 'Open all';
+    bulk = true;
+    cards.forEach(function (c) { if (!c.el.hidden) { if (open) fill(c.el, c.r); c.el.open = open; } });
+    setTimeout(function () { bulk = false; }, 50);
+    expand.textContent = open ? 'Close all' : 'Open all';
+  });
+
+  // a #release-id link opens that release
+  var h = decodeURIComponent(location.hash.slice(1));
+  var target = h && document.getElementById(h);
+  if (target && target.tagName === 'DETAILS') { target.open = true; target.scrollIntoView(); }
+})();
+</script>
+</body>
+</html>
