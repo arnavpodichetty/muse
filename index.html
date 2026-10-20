@@ -271,9 +271,37 @@ a{ color:inherit; }
   display:grid; grid-template-columns:2.4em 1fr auto; gap:0 10px; align-items:baseline;
   padding:9px 6px; transition:background .2s ease;
 }
-.track > summary::before{
-  content:counter(tr, decimal-leading-zero);
-  font-family:var(--mono); font-size:12px; color:rgb(var(--c1)); opacity:.8;
+/* the track number doubles as its play button: a triangle on hover, bars
+   while it plays, a pause sign on hover while it plays */
+.t-play{
+  all:unset; cursor:pointer; display:flex; align-items:center; width:100%; height:1.5em; align-self:center;
+  font-family:var(--mono); font-size:12px; color:rgb(var(--c1));
+}
+.t-play::before{ content:counter(tr, decimal-leading-zero); opacity:.8; }
+.t-play svg, .t-play .i-bars{ display:none; }
+.t-play svg{ width:15px; height:15px; fill:currentColor; }
+.t-play:focus-visible{ outline:2px solid rgb(var(--gold)); outline-offset:2px; }
+.track > summary:hover .t-play::before, .t-play:focus-visible::before, .is-playing .t-play::before{ content:none; }
+.track > summary:hover .t-play .i-play, .t-play:focus-visible .i-play{ display:block; }
+.is-playing .t-play .i-bars{ display:flex; }
+.is-playing:not(.is-paused) > summary:hover .t-play .i-bars{ display:none; }
+.is-playing:not(.is-paused) > summary:hover .t-play .i-pause{ display:block; }
+.is-playing:not(.is-paused) > summary:hover .t-play .i-play{ display:none; }
+.is-playing.is-paused .t-play .i-bars{ display:none; }
+.is-playing.is-paused .t-play .i-play{ display:block; }
+.is-playing .t-name{ color:rgb(var(--c1)); }
+.no-preview .t-play{ cursor:default; opacity:.35; }
+.no-preview .t-play svg{ display:none !important; }
+.no-preview .t-play::before{ content:counter(tr, decimal-leading-zero) !important; }
+.i-bars{ align-items:flex-end; gap:2px; height:12px; }
+.i-bars i{ width:3px; height:100%; background:currentColor; transform-origin:bottom; animation:eq .9s ease-in-out infinite alternate; }
+.i-bars i:nth-child(2){ animation-delay:-.3s; }
+.i-bars i:nth-child(3){ animation-delay:-.6s; }
+@keyframes eq{ from{ transform:scaleY(.25); } to{ transform:scaleY(1); } }
+@media (hover:none){
+  .t-play::before{ content:none; }
+  .t-play .i-play{ display:block; }
+  .is-playing:not(.is-paused) .t-play .i-play{ display:none; }
 }
 .track > summary:hover{ background:rgba(var(--c1),.08); }
 .track > summary:hover .t-name, .track[open] > summary .t-name{ color:rgb(var(--c1)); }
@@ -296,6 +324,48 @@ a{ color:inherit; }
 .song .meta{ grid-template-columns:repeat(auto-fill, minmax(170px, 1fr)); margin-bottom:12px; }
 .song .prose p{ font-size:16px; }
 .song-of{ font-family:var(--mono); font-size:12px; opacity:.7; margin-bottom:10px; }
+.r-play{
+  all:unset; cursor:pointer; display:inline-flex; align-items:center; gap:7px; margin:14px 18px 0 0; vertical-align:top;
+  font-family:var(--mono); font-size:12px; padding:5px 12px 5px 9px;
+  color:rgb(var(--bg)); background:rgb(var(--c1));
+}
+.r-play svg{ width:14px; height:14px; fill:currentColor; }
+.r-play:hover{ filter:brightness(1.12); }
+.r-play:focus-visible{ outline:2px solid rgb(var(--gold)); outline-offset:2px; }
+
+/* ---- the player: pinned to the bottom while a preview plays ---- */
+.player{
+  position:fixed; left:0; right:0; bottom:0; z-index:6;
+  background:rgba(var(--bg),.9); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-top:1px solid rgba(var(--c1),.35);
+  box-shadow:0 -14px 40px -18px rgba(var(--c1),.45);
+  animation:rise .35s cubic-bezier(.2,.7,.2,1);
+}
+@keyframes rise{ from{ transform:translateY(100%); } }
+.p-line{ position:absolute; left:0; right:0; top:-1px; height:3px; cursor:pointer; background:rgba(var(--fg),.08); }
+.p-line::before{ content:''; position:absolute; left:0; right:0; top:-8px; bottom:-6px; }
+.p-fill{ display:block; height:100%; width:0; background:linear-gradient(90deg, rgb(var(--c2)), rgb(var(--c1))); }
+.p-row{ display:flex; align-items:center; gap:14px; padding-top:10px; padding-bottom:10px; }
+.p-row .cover{ width:46px; flex:none; border-color:rgba(var(--c1),.5); }
+.p-text{ flex:1; min-width:0; }
+.p-text b{ display:block; font-family:var(--sans); font-weight:600; font-size:15px; line-height:1.3; color:rgb(var(--c1)); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.p-text small{ display:block; font-family:var(--mono); font-size:11.5px; opacity:.6; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.p-ctl{ display:flex; align-items:center; gap:4px; }
+.p-btn{
+  all:unset; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  width:36px; height:36px; color:rgb(var(--fg)); opacity:.75; transition:opacity .2s ease;
+}
+.p-btn svg{ width:20px; height:20px; fill:currentColor; }
+.p-btn:hover{ opacity:1; }
+.p-btn:focus-visible{ outline:2px solid rgb(var(--gold)); outline-offset:-2px; }
+.p-btn:disabled{ opacity:.25; cursor:default; }
+.p-btn.p-main{ width:42px; height:42px; border-radius:50%; background:rgb(var(--c1)); color:rgb(var(--bg)); opacity:1; }
+.p-btn.p-main svg{ width:22px; height:22px; }
+.p-links{ display:flex; gap:12px; font-family:var(--mono); font-size:12px; white-space:nowrap; }
+.p-links a{ text-decoration:none; color:rgb(var(--c1)); border-bottom:1px solid rgba(var(--c1),.4); }
+.p-links a:hover{ border-bottom-color:rgb(var(--c1)); }
+.p-links span{ opacity:.55; }
+body.has-player .end{ height:150px; }
 .empty{ margin:60px 0; font-family:var(--mono); font-size:13px; opacity:.6; text-align:center; }
 .end{ height:80px; }
 
@@ -442,12 +512,22 @@ a{ color:inherit; }
   .song{ margin-left:0; }
   .release{ scroll-margin-top:200px; }
   .era-head span{ font-size:19px; }
+  .p-links span{ display:none; }
+  .p-row{ gap:10px; }
+  .p-row .cover{ width:40px; }
+}
+@media (max-width:420px){
+  .p-links{ display:none; }
 }
 @media (prefers-reduced-motion: no-preference){
 }
 @media (prefers-reduced-motion: reduce){
   .top h1{ animation:none; }
   body{ transition:none; }
+  .i-bars i{ animation:none; }
+  .i-bars i:nth-child(1){ transform:scaleY(.6); }
+  .i-bars i:nth-child(3){ transform:scaleY(.4); }
+  .player{ animation:none; }
 }
 </style>
 </head>
@@ -502,14 +582,72 @@ a{ color:inherit; }
 <main class="wrap" id="list"></main>
 <div class="end"></div>
 
+<div class="player" id="player" hidden>
+  <div class="p-line" id="p-line" role="slider" aria-label="Position in preview" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0"><span class="p-fill" id="p-fill"></span></div>
+  <div class="wrap p-row">
+    <span id="p-cover"></span>
+    <div class="p-text"><b id="p-title"></b><small id="p-sub" aria-live="polite"></small></div>
+    <div class="p-ctl">
+      <button class="p-btn" type="button" id="p-prev" aria-label="Previous track"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+      <button class="p-btn p-main" type="button" id="p-toggle" aria-label="Pause"></button>
+      <button class="p-btn" type="button" id="p-next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+    </div>
+    <div class="p-links" id="p-links"></div>
+    <button class="p-btn p-close" type="button" id="p-close" aria-label="Close player"><svg viewBox="0 0 24 24"><path d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4 17.6 5 12 10.6z"/></svg></button>
+  </div>
+</div>
+
 <script src="data/muse.js"></script>
 <script>
 (function () {
   var M = window.MUSE;
   if (!M) return;
   var SONGS = M.songs;
+  // studio albums keep every song, bonus tracks included; other versions of
+  // their songs (live, demos, remixes, alternate takes) move out into an
+  // edition for each bonus disc or deluxe CD
+  var EDITIONS = {
+    // all: the whole bonus disc moves, its new songs too
+    'BX Limited Festival Edition bonus CD': { name: 'Limited Festival Edition', all: true,
+      info: 'A limited edition of Showbiz with a bonus CD of six b-sides and two live recordings.' },
+    'JP CD': { name: 'Japanese edition' },
+    'JP CD, JP promos': { name: 'Japanese edition' },
+    'AU bonus CD, Bonus disc promo': { name: 'Australian edition',
+      info: 'The Australian release came with a bonus CD of live recordings.' },
+    'Absolution XX Anniversary bonus disc': { title: 'Absolution XX Anniversary', date: '2023-11-17',
+      info: 'Released for the album’s twentieth anniversary, with a bonus disc of demos, stripped-back mixes and live recordings from the Absolution Tour.' },
+    'CD 2': { name: 'Super Deluxe',
+      info: 'The second CD of the Super Deluxe edition: alternate versions, acoustic takes and a remix of the album’s songs.' }
+  };
+  M.releases.filter(function (r) { return r.type === 'album'; }).forEach(function (r) {
+    var extra = {}, main = {};
+    r.tracks.forEach(function (t) { if (!t.b) main[t.s] = true; });
+    r.tracks = r.tracks.filter(function (t) {
+      if (!t.b || (!t.v && !main[t.s] && !(EDITIONS[t.b] || {}).all)) return true;
+      (extra[t.b] = extra[t.b] || []).push({ t: t.t, v: t.v, s: t.s, len: t.len, a: t.a });
+      return false;
+    });
+    Object.keys(extra).forEach(function (b) {
+      var e = EDITIONS[b] || { name: b };
+      var ts = extra[b];
+      var title = e.title || r.title + ' (' + e.name + ')';
+      var named = ts.map(function (t) { return '“' + t.t + '”' + (t.v ? ' ' + t.v : ''); });
+      if (named.length > 1) named.splice(-2, 2, named[named.length - 2] + ' and ' + named[named.length - 1]);
+      M.releases.push({
+        id: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-edition',
+        title: title, type: 'edition', album: r.title, date: e.date || r.date, label: r.label, img: r.img, url: r.url,
+        info: e.info || 'The ' + e.name.replace(/ edition$/, '') + ' release adds ' +
+          named.join(', ') + (ts.length === 1 ? ' as a bonus track.' : ' as bonus tracks.'),
+        tracks: ts
+      });
+    });
+  });
+  // editions in release order, after everything else
+  M.releases = M.releases.filter(function (r) { return r.type !== 'edition'; }).concat(
+    M.releases.filter(function (r) { return r.type === 'edition'; }).sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; }));
   var GROUPS = [
     { type: 'album', name: 'Studio albums', chip: 'Albums' },
+    { type: 'edition', name: 'Editions and bonus tracks', chip: 'Editions' },
     { type: 'EP', name: 'EPs', chip: 'EPs' },
     { type: 'single', name: 'Singles', chip: 'Singles' },
     { type: 'live', name: 'Live', chip: 'Live' },
@@ -555,6 +693,7 @@ a{ color:inherit; }
   // every release's era: albums and singles by album, the rest by title or year
   var themeOf = function (r) {
     if (r.type === 'album') return ALBUM_ERA[r.title];
+    if (r.type === 'edition') return ALBUM_ERA[r.album];
     if (r.type === 'single') return ALBUM_ERA[eraOf(r)] || 'early';
     if (r.type === 'demo') return 'early';
     var t = r.title;
@@ -648,7 +787,7 @@ a{ color:inherit; }
     e.preventDefault();
     slideShut(d, d.querySelector(d.classList.contains('track') ? '.song' : '.r-body'));
   });
-  var TYPE_NAME = { album: 'Studio album', EP: 'EP', single: 'Single', live: 'Live release', demo: 'Demo' };
+  var TYPE_NAME = { album: 'Studio album', edition: 'Edition', EP: 'EP', single: 'Single', live: 'Live release', demo: 'Demo' };
   var albums = M.releases.filter(function (r) { return r.type === 'album'; });
   var albumByEra = {};
   albums.forEach(function (r) { albumByEra[r.title] = r; });
@@ -658,7 +797,7 @@ a{ color:inherit; }
   M.releases.forEach(function (r) { tally[r.type] = (tally[r.type] || 0) + 1; });
   var trackCount = M.releases.reduce(function (n, r) { return n + (r.tracks || []).length; }, 0);
   document.getElementById('stats').innerHTML = [
-    tally.album + ' studio albums', tally.EP + ' EPs', tally.single + ' singles',
+    tally.album + ' studio albums', tally.edition + ' editions', tally.EP + ' EPs', tally.single + ' singles',
     tally.live + ' live releases', tally.demo + ' demos',
     Object.keys(SONGS).length + ' songs', trackCount + ' tracks'
   ].map(function (s) { return '<span>' + s + '</span>'; }).join('');
@@ -712,7 +851,7 @@ a{ color:inherit; }
       var n = (r.tracks || []).length;
       var sub = [TYPE_NAME[r.type], n + (n === 1 ? ' track' : ' tracks')];
       if (r.len) sub.push(r.len.split(/[;,(]/)[0].trim());
-      if (r.type !== 'album' && r.type !== 'single') sub.push(THEMES[k].name + ' era');
+      if (r.type !== 'album' && r.type !== 'single' && r.type !== 'edition') sub.push(THEMES[k].name + ' era');
       d.innerHTML = '<summary>' + cover(r, true) + '<span class="r-title">' + esc(r.title) + '</span>' +
         '<span class="r-year">' + esc(year(r)) + '</span>' +
         '<span class="r-sub">' + esc(sub.join(' · ')) + '</span></summary>';
@@ -748,22 +887,41 @@ a{ color:inherit; }
       '<div class="r-top">' + cover(r, false) + metaList([
       ['Released', ds[0], datesHtml], ['Label', r.label], ['Produced by', r.p], ['Written by', r.w],
       ['Recorded', r.rec], ['Length', r.len], ['Chart peak', r.ch], ['Artwork', r.art], ['Formats', r.fmt],
-      ['From', r.type === 'single' ? r.album : '']
+      ['From', r.type === 'single' ? r.album : ''], ['Edition of', r.type === 'edition' ? r.album : '']
     ]) + '</div><div class="prose">' + paras(r.info) + '</div>' +
       '<a class="wiki" href="' + esc(r.url) + '" target="_blank" rel="noopener">Read more on MuseWiki &rarr;</a>';
+    var k = d.dataset.era;
+    if ((r.tracks || []).length) {
+      var rp = document.createElement('button');
+      rp.type = 'button';
+      rp.className = 'r-play';
+      rp.innerHTML = ICON.play + 'Play previews';
+      rp.addEventListener('click', function () {
+        if (now && now.r === r) togglePause(); else playTrack(r, k, 0, true);
+      });
+      body.insertBefore(rp, body.querySelector('.wiki'));
+    }
     var ol = document.createElement('ol');
     ol.className = 'tracks';
-    (r.tracks || []).forEach(function (t) {
+    (r.tracks || []).forEach(function (t, i) {
       var li = document.createElement('li');
       var s = t.s && SONGS[t.s];
       var td = document.createElement('details');
-      td.className = 'track' + (s ? '' : ' no-info');
-      td.innerHTML = '<summary><span class="t-name">' + esc(t.t) +
+      td.className = 'track' + (s ? '' : ' no-info') + (t.a ? '' : ' no-preview');
+      td.innerHTML = '<summary><button class="t-play" type="button" aria-label="' + (t.a ? 'Play a preview of ' : 'No preview of ') + esc(t.t) + '">' +
+        ICON.play + ICON.pause + '<span class="i-bars"><i></i><i></i><i></i></span></button><span class="t-name">' + esc(t.t) +
         (t.v ? '<span class="t-v">' + esc(t.v) + '</span>' : '') +
         (t.b ? '<span class="t-b">bonus · ' + esc(t.b) + '</span>' : '') +
         '</span><span class="t-len">' + esc(t.len || (s && !t.v ? ((s.len || '').match(/\d+:\d\d/) || [''])[0] : '')) + '</span></summary>';
       if (s) td.addEventListener('toggle', function () { if (td.open) { fillSong(td, t, s); slideOpen(td, td.querySelector('.song')); } });
       else td.addEventListener('click', function (e) { if (e.target.closest('summary')) e.preventDefault(); });
+      // playing a track leaves its notes as they were
+      td.querySelector('.t-play').addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (td.classList.contains('no-preview')) return;
+        if (now && now.r === r && now.i === i) togglePause(); else playTrack(r, k, i, false);
+      });
       li.appendChild(td);
       ol.appendChild(li);
     });
@@ -771,6 +929,7 @@ a{ color:inherit; }
     d.appendChild(body);
     d._tracks = ol.children;
     applyTrackFilter(d);
+    if (now && now.r === r) mark(true);
   };
   var fillSong = function (td, t, s) {
     if (td._filled) return;
@@ -795,6 +954,174 @@ a{ color:inherit; }
     c.el.open = true;
     c.el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   };
+
+  // ---- previews: 30 seconds of each track, from Apple's iTunes API ----
+  // no audio is hosted here; each track's a is its Apple Music id, and a
+  // release's previews are fetched together the first time one plays
+  var ICON = {
+    play: '<svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>',
+    pause: '<svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>'
+  };
+  var found = {};   // Apple id -> promise of that track's details
+  var lookup = function (r, i) {
+    var a = r.tracks[i].a;
+    if (!a) return Promise.resolve(null);
+    if (!found[a]) {
+      var ids = r.tracks.map(function (t) { return t.a; }).filter(function (id, j, all) { return id && !found[id] && all.indexOf(id) === j; });
+      var req = fetch('https://itunes.apple.com/lookup?id=' + ids.join(',')).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      }).then(function (j) {
+        var by = {};
+        (j.results || []).forEach(function (x) { if (x.previewUrl) by[x.trackId] = x; });
+        return by;
+      });
+      ids.forEach(function (id) {
+        found[id] = req.then(function (by) { return by[id] || null; }, function (err) {
+          delete found[id];   // a failed request is tried again next time
+          throw err;
+        });
+      });
+    }
+    return found[a];
+  };
+
+  var audio = new Audio();
+  audio.preload = 'none';
+  var player = document.getElementById('player');
+  var pFill = document.getElementById('p-fill');
+  var pLine = document.getElementById('p-line');
+  var pSub = document.getElementById('p-sub');
+  var pToggle = document.getElementById('p-toggle');
+  var pPrev = document.getElementById('p-prev');
+  var pNext = document.getElementById('p-next');
+  var now = null;   // { r, k, i }
+  var cardOf = function (r) { return cards.filter(function (c) { return c.r === r; })[0]; };
+  var trackEl = function () {
+    var d = now && cardOf(now.r).el;
+    var li = d && d._tracks && d._tracks[now.i];
+    return li && li.firstChild;
+  };
+  var mark = function (on) {
+    var td = trackEl();
+    if (!td) return;
+    td.classList.toggle('is-playing', on);
+    td.classList.toggle('is-paused', on && audio.paused);
+  };
+  var setToggle = function () {
+    var paused = audio.paused;
+    pToggle.innerHTML = paused ? ICON.play : ICON.pause;
+    pToggle.setAttribute('aria-label', paused ? 'Play' : 'Pause');
+    mark(true);
+  };
+  var stepTo = function (dir, from) {
+    // the next track along that has (or might have) a preview
+    for (var j = from + dir; j >= 0 && j < now.r.tracks.length; j += dir) {
+      var li = cardOf(now.r).el._tracks;
+      if (!(li && li[j] && li[j].firstChild.classList.contains('no-preview'))) return j;
+    }
+    return -1;
+  };
+  var playTrack = function (r, k, i, auto) {
+    mark(false);
+    audio.pause();
+    audio.removeAttribute('src');
+    var t = r.tracks[i];
+    var me = now = { r: r, k: k, i: i };
+    player.hidden = false;
+    document.body.classList.add('has-player');
+    player.setAttribute('style', themeStyle(k));
+    document.getElementById('p-cover').innerHTML = cover(r, false);
+    document.getElementById('p-title').textContent = t.t + (t.v ? ' ' + t.v : '');
+    pSub.textContent = 'Finding a preview…';
+    pFill.style.width = '0';
+    var spot = 'https://open.spotify.com/search/' + encodeURIComponent('muse ' + t.t);
+    document.getElementById('p-links').innerHTML = '<span>Full song:</span><a href="' + esc(spot) + '" target="_blank" rel="noopener">Spotify</a>';
+    pPrev.disabled = stepTo(-1, i) < 0;
+    pNext.disabled = stepTo(1, i) < 0;
+    mark(true);
+    lookup(r, i).then(function (x) {
+      if (now !== me) return;
+      if (!x) {
+        var td = trackEl();
+        if (td) { td.classList.add('no-preview'); td.querySelector('.t-play').setAttribute('aria-label', 'No preview of ' + t.t); }
+        var n = stepTo(1, i);
+        if (auto && n > -1) return playTrack(r, k, n, true);
+        pSub.textContent = 'No preview of this one';
+        setToggle();
+        return;
+      }
+      pSub.textContent = r.title + ' · 30-second preview' + (fold(x.collectionName) !== fold(r.title) ? ' from ' + x.collectionName : '');
+      document.getElementById('p-links').innerHTML = '<span>Full song:</span>' +
+        '<a href="' + esc(x.trackViewUrl) + '" target="_blank" rel="noopener">Apple Music</a>' +
+        '<a href="' + esc(spot) + '" target="_blank" rel="noopener">Spotify</a>';
+      audio.src = x.previewUrl;
+      audio.play().catch(function () {});
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: t.t, artist: 'Muse', album: r.title,
+          artwork: r.img ? [{ src: new URL(r.img, location.href).href, sizes: '300x300', type: 'image/jpeg' }] : []
+        });
+      }
+      // look the next one up now so it starts straight away
+      var n = stepTo(1, i);
+      if (n > -1) lookup(r, n).catch(function () {});
+    }).catch(function () {
+      if (now !== me) return;
+      pSub.textContent = 'Couldn’t reach the preview service. Try again in a moment.';
+      setToggle();
+    });
+  };
+  var togglePause = function () {
+    if (!now) return;
+    if (!audio.getAttribute('src')) return playTrack(now.r, now.k, now.i, false);
+    if (audio.paused) audio.play().catch(function () {}); else audio.pause();
+  };
+  var skip = function (dir) {
+    if (!now) return;
+    var n = stepTo(dir, now.i);
+    if (n > -1) playTrack(now.r, now.k, n, true);
+  };
+  audio.addEventListener('play', setToggle);
+  audio.addEventListener('pause', setToggle);
+  audio.addEventListener('timeupdate', function () {
+    var d = audio.duration || 30;
+    pFill.style.width = (100 * audio.currentTime / d) + '%';
+    pLine.setAttribute('aria-valuenow', Math.round(audio.currentTime));
+  });
+  audio.addEventListener('error', function () {
+    if (now && audio.getAttribute('src')) pSub.textContent = 'This preview wouldn’t load.';
+  });
+  audio.addEventListener('ended', function () {
+    if (now && stepTo(1, now.i) > -1) skip(1); else setToggle();
+  });
+  pToggle.addEventListener('click', togglePause);
+  pPrev.addEventListener('click', function () { skip(-1); });
+  pNext.addEventListener('click', function () { skip(1); });
+  pLine.addEventListener('click', function (e) {
+    if (!audio.duration) return;
+    var box = pLine.getBoundingClientRect();
+    audio.currentTime = audio.duration * Math.min(1, Math.max(0, (e.clientX - box.left) / box.width));
+  });
+  pLine.addEventListener('keydown', function (e) {
+    if (!audio.duration) return;
+    var step = e.key === 'ArrowRight' ? 5 : e.key === 'ArrowLeft' ? -5 : 0;
+    if (step) { e.preventDefault(); audio.currentTime = Math.min(audio.duration, Math.max(0, audio.currentTime + step)); }
+  });
+  document.getElementById('p-close').addEventListener('click', function () {
+    audio.pause();
+    mark(false);
+    now = null;
+    audio.removeAttribute('src');
+    player.hidden = true;
+    document.body.classList.remove('has-player');
+  });
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.setActionHandler('play', togglePause);
+    navigator.mediaSession.setActionHandler('pause', togglePause);
+    navigator.mediaSession.setActionHandler('previoustrack', function () { skip(-1); });
+    navigator.mediaSession.setActionHandler('nexttrack', function () { skip(1); });
+  }
 
   // ---- the page glow takes the colour of the era in view ----
   if ('IntersectionObserver' in window) {

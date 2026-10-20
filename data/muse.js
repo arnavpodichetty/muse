@@ -1,8 +1,11 @@
 // Muse discography for index.html: every studio album, EP, single, live
 // release and demo, with its track list and notes on each song. Adapted
 // from MuseWiki (musewiki.org), a fan-written wiki. releases[].tracks[].s keys
-// into songs; v is a version (live, remix, edit), b marks a bonus track;
-// img is the cover in covers/ (MuseWiki scans, Deezer for a few).
+// into songs; v is a version (live, remix, edit), b marks a bonus track
+// (index.html moves alternate versions of album songs into editions);
+// a is the track's Apple Music id, for its 30-second preview (none where
+// Apple doesn't have the recording); img is the cover in covers/ (MuseWiki
+// scans, Deezer for a few).
 window.MUSE = {
 "releases":[
 {
@@ -29,61 +32,75 @@ window.MUSE = {
 "tracks":[
 {
 "t":"Sunburn",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Muscle Museum",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":991516212
 },
 {
 "t":"Fillip",
-"s":"Fillip (song)"
+"s":"Fillip (song)",
+"a":991516213
 },
 {
 "t":"Falling Down",
-"s":"Falling Down (song)"
+"s":"Falling Down (song)",
+"a":991516214
 },
 {
 "t":"Cave",
-"s":"Cave (song)"
+"s":"Cave (song)",
+"a":991516215
 },
 {
 "t":"Showbiz",
-"s":"Showbiz (song)"
+"s":"Showbiz (song)",
+"a":991516216
 },
 {
 "t":"Unintended",
-"s":"Unintended (song)"
+"s":"Unintended (song)",
+"a":991516217
 },
 {
 "t":"Uno",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":991516218
 },
 {
 "t":"Sober",
-"s":"Sober (song)"
+"s":"Sober (song)",
+"a":991516219
 },
 {
 "t":"Escape",
-"s":"Escape (song)"
+"s":"Escape (song)",
+"a":991516220
 },
 {
 "t":"Overdue",
-"s":"Overdue (song)"
+"s":"Overdue (song)",
+"a":991516221
 },
 {
 "t":"Hate This & I'll Love You",
-"s":"Hate This and I'll Love You (song)"
+"s":"Hate This and I'll Love You (song)",
+"a":991516222
 },
 {
 "t":"Host",
 "s":"Host (song)",
-"b":"BX Limited Festival Edition bonus CD"
+"b":"BX Limited Festival Edition bonus CD",
+"a":319622503
 },
 {
 "t":"Coma",
 "s":"Coma (song)",
-"b":"BX Limited Festival Edition bonus CD"
+"b":"BX Limited Festival Edition bonus CD",
+"a":319622506
 },
 {
 "t":"Pink Ego Box",
@@ -93,34 +110,40 @@ window.MUSE = {
 {
 "t":"Forced In",
 "s":"Forced In (song)",
-"b":"BX Limited Festival Edition bonus CD"
+"b":"BX Limited Festival Edition bonus CD",
+"a":138265370
 },
 {
 "t":"Agitated",
 "s":"Agitated (song)",
-"b":"BX Limited Festival Edition bonus CD"
+"b":"BX Limited Festival Edition bonus CD",
+"a":319620362
 },
 {
 "t":"Yes Please",
 "s":"Yes Please (song)",
-"b":"BX Limited Festival Edition bonus CD"
+"b":"BX Limited Festival Edition bonus CD",
+"a":138265721
 },
 {
 "t":"Fillip",
 "v":"(live)",
 "s":"Fillip (song)",
-"b":"BX Limited Festival Edition bonus CD"
+"b":"BX Limited Festival Edition bonus CD",
+"a":991516213
 },
 {
 "t":"Do We Need This",
 "v":"(live)",
 "s":"Do We Need This (song)",
-"b":"BX Limited Festival Edition bonus CD"
+"b":"BX Limited Festival Edition bonus CD",
+"a":1115765063
 },
 {
 "t":"Spiral Static",
 "s":"Spiral Static (song)",
-"b":"JP CD"
+"b":"JP CD",
+"a":991516223
 }
 ],
 "img":"covers/showbiz-album.jpg"
@@ -149,55 +172,171 @@ window.MUSE = {
 "tracks":[
 {
 "t":"New Born",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":992088659
 },
 {
 "t":"Bliss",
-"s":"Bliss (song)"
+"s":"Bliss (song)",
+"a":992088660
 },
 {
 "t":"Space Dementia",
-"s":"Space Dementia (song)"
+"s":"Space Dementia (song)",
+"a":992088661
 },
 {
 "t":"Hyper Music",
-"s":"Hyper Music (song)"
+"s":"Hyper Music (song)",
+"a":992088662
 },
 {
 "t":"Plug In Baby",
-"s":"Plug In Baby (song)"
+"s":"Plug In Baby (song)",
+"a":992088663
 },
 {
 "t":"Citizen Erased",
-"s":"Citizen Erased (song)"
+"s":"Citizen Erased (song)",
+"a":992088664
 },
 {
 "t":"Micro Cuts",
-"s":"Micro Cuts (song)"
+"s":"Micro Cuts (song)",
+"a":992089115
 },
 {
 "t":"Screenager",
-"s":"Screenager (song)"
+"s":"Screenager (song)",
+"a":992089116
 },
 {
 "t":"Darkshines",
-"s":"Darkshines (song)"
+"s":"Darkshines (song)",
+"a":992089117
 },
 {
 "t":"Feeling Good",
-"s":"Feeling Good (song)"
+"s":"Feeling Good (song)",
+"a":992089118
 },
 {
 "t":"Megalomania",
-"s":"Megalomania (song)"
+"s":"Megalomania (song)",
+"a":992089119
 },
 {
 "t":"Futurism",
 "s":"Futurism (song)",
-"b":"JP CD"
+"b":"JP CD",
+"a":992089120
 }
 ],
 "img":"covers/origin-of-symmetry-album.jpg"
+},
+{
+"id":"origin-of-symmetry-xx-anniversary-remixx-edition",
+"title":"Origin of Symmetry (XX Anniversary RemiXX)",
+"type":"edition",
+"album":"Origin of Symmetry",
+"date":"2021-06-18",
+"dates":[
+"18th June 2021 (World)"
+],
+"len":"55:09",
+"w":"Matthew Bellamy",
+"p":"Rich Costey (remix)",
+"label":"Warner Records",
+"fmt":"Digital",
+"info":"A remix of the whole album by Rich Costey for its twentieth anniversary, with Futurism, until then a Japanese bonus track, placed in the running order between Feeling Good and Megalomania.",
+"url":"https://musewiki.org/Origin_of_Symmetry_(album)",
+"img":"covers/origin-of-symmetry-album.jpg",
+"tracks":[
+{
+"t":"New Born",
+"v":"(XX Anniversary RemiXX)",
+"s":"New Born (song)",
+"len":"6:04",
+"a":1567289497
+},
+{
+"t":"Bliss",
+"v":"(XX Anniversary RemiXX)",
+"s":"Bliss (song)",
+"len":"4:15",
+"a":1567289499
+},
+{
+"t":"Space Dementia",
+"v":"(XX Anniversary RemiXX)",
+"s":"Space Dementia (song)",
+"len":"6:22",
+"a":1567289501
+},
+{
+"t":"Hyper Music",
+"v":"(XX Anniversary RemiXX)",
+"s":"Hyper Music (song)",
+"len":"3:22",
+"a":1567289504
+},
+{
+"t":"Plug In Baby",
+"v":"(XX Anniversary RemiXX)",
+"s":"Plug In Baby (song)",
+"len":"3:39",
+"a":1567289505
+},
+{
+"t":"Citizen Erased",
+"v":"(XX Anniversary RemiXX)",
+"s":"Citizen Erased (song)",
+"len":"7:19",
+"a":1567289506
+},
+{
+"t":"Micro Cuts",
+"v":"(XX Anniversary RemiXX)",
+"s":"Micro Cuts (song)",
+"len":"3:38",
+"a":1567289507
+},
+{
+"t":"Screenager",
+"v":"(XX Anniversary RemiXX)",
+"s":"Screenager (song)",
+"len":"4:21",
+"a":1567289508
+},
+{
+"t":"Darkshines",
+"v":"(XX Anniversary RemiXX)",
+"s":"Darkshines (song)",
+"len":"4:46",
+"a":1567289509
+},
+{
+"t":"Feeling Good",
+"v":"(XX Anniversary RemiXX)",
+"s":"Feeling Good (song)",
+"len":"3:19",
+"a":1567289510
+},
+{
+"t":"Futurism",
+"v":"(XX Anniversary RemiXX)",
+"s":"Futurism (song)",
+"len":"3:27",
+"a":1567289513
+},
+{
+"t":"Megalomania",
+"v":"(XX Anniversary RemiXX)",
+"s":"Megalomania (song)",
+"len":"4:38",
+"a":1567289514
+}
+]
 },
 {
 "id":"absolution-album",
@@ -223,166 +362,198 @@ window.MUSE = {
 "tracks":[
 {
 "t":"Intro",
-"s":"Intro (song)"
+"s":"Intro (song)",
+"a":1716096820
 },
 {
 "t":"Apocalypse Please",
-"s":"Apocalypse Please (song)"
+"s":"Apocalypse Please (song)",
+"a":1716096822
 },
 {
 "t":"Time Is Running Out",
-"s":"Time Is Running Out (song)"
+"s":"Time Is Running Out (song)",
+"a":1716096823
 },
 {
 "t":"Sing for Absolution",
-"s":"Sing for Absolution (song)"
+"s":"Sing for Absolution (song)",
+"a":1716096824
 },
 {
 "t":"Stockholm Syndrome",
-"s":"Stockholm Syndrome (song)"
+"s":"Stockholm Syndrome (song)",
+"a":1716096825
 },
 {
 "t":"Falling Away with You",
-"s":"Falling Away with You (song)"
+"s":"Falling Away with You (song)",
+"a":1716096826
 },
 {
 "t":"Interlude",
-"s":"Interlude (song)"
+"s":"Interlude (song)",
+"a":1716097097
 },
 {
 "t":"Hysteria",
-"s":"Hysteria (song)"
+"s":"Hysteria (song)",
+"a":1716097098
 },
 {
 "t":"Blackout",
-"s":"Blackout (song)"
+"s":"Blackout (song)",
+"a":1716097099
 },
 {
 "t":"Butterflies & Hurricanes",
-"s":"Butterflies & Hurricanes (song)"
+"s":"Butterflies & Hurricanes (song)",
+"a":1716097100
 },
 {
 "t":"The Small Print",
-"s":"The Small Print (song)"
+"s":"The Small Print (song)",
+"a":1716097101
 },
 {
 "t":"Endlessly",
-"s":"Endlessly (song)"
+"s":"Endlessly (song)",
+"a":1716097103
 },
 {
 "t":"Thoughts of a Dying Atheist",
-"s":"Thoughts of a Dying Atheist (song)"
+"s":"Thoughts of a Dying Atheist (song)",
+"a":1716097104
 },
 {
 "t":"Ruled by Secrecy",
-"s":"Ruled by Secrecy (song)"
+"s":"Ruled by Secrecy (song)",
+"a":1716097106
 },
 {
 "t":"Stockholm Syndrome",
 "v":"(live)",
 "s":"Stockholm Syndrome (song)",
-"b":"AU bonus CD, Bonus disc promo"
+"b":"AU bonus CD, Bonus disc promo",
+"a":275506120
 },
 {
 "t":"New Born",
 "v":"(live)",
 "s":"New Born (song)",
-"b":"AU bonus CD, Bonus disc promo"
+"b":"AU bonus CD, Bonus disc promo",
+"a":275506117
 },
 {
 "t":"Muscle Museum",
 "v":"(live)",
 "s":"Muscle Museum (song)",
-"b":"AU bonus CD, Bonus disc promo"
+"b":"AU bonus CD, Bonus disc promo",
+"a":138269673
 },
 {
 "t":"Hysteria",
 "v":"(live)",
 "s":"Hysteria (song)",
-"b":"AU bonus CD, Bonus disc promo"
+"b":"AU bonus CD, Bonus disc promo",
+"a":1716102080
 },
 {
 "t":"Bliss",
 "v":"(live)",
 "s":"Bliss (song)",
-"b":"AU bonus CD, Bonus disc promo"
+"b":"AU bonus CD, Bonus disc promo",
+"a":992088660
 },
 {
 "t":"Time Is Running Out",
 "v":"(live)",
 "s":"Time Is Running Out (song)",
-"b":"AU bonus CD, Bonus disc promo"
+"b":"AU bonus CD, Bonus disc promo",
+"a":1716101776
 },
 {
 "t":"Fury",
 "s":"Fury (song)",
-"b":"JP CD, JP promos"
+"b":"JP CD, JP promos",
+"a":1716097102
 },
 {
 "t":"Apocalypse Please",
 "v":"(vocals and keyboard only)",
 "s":"Apocalypse Please (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716101775
 },
 {
 "t":"Time Is Running Out",
 "v":"(Recorded live at the Wiltern Theater 2004)",
 "s":"Time Is Running Out (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716101776
 },
 {
 "t":"Sing for Absolution",
 "v":"(Recorded live at the Antic Arena, Vienne 2004)",
 "s":"Sing for Absolution (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102077
 },
 {
 "t":"Falling Away with You",
 "v":"(Demo 2002)",
 "s":"Falling Away with You (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102078
 },
 {
 "t":"Hysteria",
 "v":"(Demo 2002)",
 "s":"Hysteria (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102079
 },
 {
 "t":"Hysteria",
 "v":"(Recorded live at Earl's Court 2004)",
 "s":"Hysteria (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102080
 },
 {
 "t":"Blackout",
 "v":"(Recorded live at the Antic Arena, Vienne 2004)",
 "s":"Blackout (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102081
 },
 {
 "t":"Butterflies & Hurricanes",
 "v":"(vocal, keyboard and strings only)",
 "s":"Butterflies & Hurricanes (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102082
 },
 {
 "t":"Endlessly",
 "v":"(Recorded live at the Columbiahalle, Berlin 2003)",
 "s":"Endlessly (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102083
 },
 {
 "t":"Thoughts of a Dying Atheist",
 "v":"(Recorded live at the Wiltern Theater 2004)",
 "s":"Thoughts of a Dying Atheist (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102084
 },
 {
 "t":"Ruled by Secrecy",
 "v":"(vocals and keyboard only)",
 "s":"Ruled by Secrecy (song)",
-"b":"Absolution XX Anniversary bonus disc"
+"b":"Absolution XX Anniversary bonus disc",
+"a":1716102086
 }
 ],
 "img":"covers/absolution-album.jpg"
@@ -411,52 +582,64 @@ window.MUSE = {
 "tracks":[
 {
 "t":"Take a Bow",
-"s":"Take a Bow (song)"
+"s":"Take a Bow (song)",
+"a":992221995
 },
 {
 "t":"Starlight",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":992221996
 },
 {
 "t":"Supermassive Black Hole",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":992221997
 },
 {
 "t":"Map of the Problematique",
-"s":"Map of the Problematique (song)"
+"s":"Map of the Problematique (song)",
+"a":992221998
 },
 {
 "t":"Soldier's Poem",
-"s":"Soldier's Poem (song)"
+"s":"Soldier's Poem (song)",
+"a":992221999
 },
 {
 "t":"Invincible",
-"s":"Invincible (song)"
+"s":"Invincible (song)",
+"a":992222000
 },
 {
 "t":"Assassin",
-"s":"Assassin (song)"
+"s":"Assassin (song)",
+"a":992222001
 },
 {
 "t":"Exo-Politics",
-"s":"Exo-Politics (song)"
+"s":"Exo-Politics (song)",
+"a":992222002
 },
 {
 "t":"City of Delusion",
-"s":"City of Delusion (song)"
+"s":"City of Delusion (song)",
+"a":992222003
 },
 {
 "t":"Hoodoo",
-"s":"Hoodoo (song)"
+"s":"Hoodoo (song)",
+"a":992222004
 },
 {
 "t":"Knights of Cydonia",
-"s":"Knights of Cydonia (song)"
+"s":"Knights of Cydonia (song)",
+"a":992222005
 },
 {
 "t":"Glorious",
 "s":"Glorious (song)",
-"b":"JP CD"
+"b":"JP CD",
+"a":992222006
 }
 ],
 "img":"covers/black-holes-and-revelations-album.jpg"
@@ -483,57 +666,68 @@ window.MUSE = {
 {
 "t":"Uprising",
 "len":"5:02",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":991509754
 },
 {
 "t":"Resistance",
 "len":"5:46",
-"s":"Resistance (song)"
+"s":"Resistance (song)",
+"a":991509845
 },
 {
 "t":"Undisclosed Desires",
 "len":"3:56",
-"s":"Undisclosed Desires (song)"
+"s":"Undisclosed Desires (song)",
+"a":991509846
 },
 {
 "t":"United States of Eurasia (+Collateral Damage)",
 "len":"5:47",
-"s":"United States of Eurasia (song)"
+"s":"United States of Eurasia (song)",
+"a":991509847
 },
 {
 "t":"Guiding Light",
 "len":"4:13",
-"s":"Guiding Light (song)"
+"s":"Guiding Light (song)",
+"a":991509854
 },
 {
 "t":"Unnatural Selection",
 "len":"6:54",
-"s":"Unnatural Selection (song)"
+"s":"Unnatural Selection (song)",
+"a":991509855
 },
 {
 "t":"MK ULTRA",
 "len":"4:06",
-"s":"MK ULTRA (song)"
+"s":"MK ULTRA (song)",
+"a":991509856
 },
 {
 "t":"I Belong to You (+Mon Cœur S'ouvre à Ta Voix)",
 "len":"5:38",
-"s":"I Belong to You (song)"
+"s":"I Belong to You (song)",
+"a":991509857
 },
 {
 "t":"Exogenesis: Symphony Part 1 (Overture)",
 "len":"4:18",
-"s":"Exogenesis: Symphony (song)"
+"s":"Exogenesis: Symphony (song)",
+"a":991509858
 },
 {
 "t":"Exogenesis: Symphony Part 2 (Cross-Pollination)",
 "len":"3:56",
-"s":"Exogenesis: Symphony (song)"
+"s":"Exogenesis: Symphony (song)",
+"a":991509859
 },
 {
 "t":"Exogenesis: Symphony Part 3 (Redemption)",
 "len":"4:37",
-"s":"Exogenesis: Symphony (song)"
+"s":"Exogenesis: Symphony (song)",
+"a":991509860
 }
 ],
 "img":"covers/the-resistance-album.jpg"
@@ -562,67 +756,80 @@ window.MUSE = {
 {
 "t":"Supremacy",
 "len":"4:55",
-"s":"Supremacy (song)"
+"s":"Supremacy (song)",
+"a":551989942
 },
 {
 "t":"Madness",
 "len":"4:39",
-"s":"Madness (song)"
+"s":"Madness (song)",
+"a":551989943
 },
 {
 "t":"Panic Station",
 "len":"3:03",
-"s":"Panic Station (song)"
+"s":"Panic Station (song)",
+"a":551989944
 },
 {
 "t":"Prelude",
 "len":"0:57",
-"s":"Prelude (song)"
+"s":"Prelude (song)",
+"a":551989945
 },
 {
 "t":"Survival",
 "len":"4:17",
-"s":"Survival (song)"
+"s":"Survival (song)",
+"a":551989946
 },
 {
 "t":"Follow Me",
 "len":"3:51",
-"s":"Follow Me (song)"
+"s":"Follow Me (song)",
+"a":551989947
 },
 {
 "t":"Animals",
 "len":"4:23",
-"s":"Animals (song)"
+"s":"Animals (song)",
+"a":551989948
 },
 {
 "t":"Explorers",
 "len":"5:48",
-"s":"Explorers (song)"
+"s":"Explorers (song)",
+"a":551990229
 },
 {
 "t":"Big Freeze",
 "len":"4:41",
-"s":"Big Freeze (song)"
+"s":"Big Freeze (song)",
+"a":551990230
 },
 {
 "t":"Save Me",
 "len":"5:09",
-"s":"Save Me (song)"
+"s":"Save Me (song)",
+"a":551990231
 },
 {
 "t":"Liquid State",
 "len":"3:03",
-"s":"Liquid State (song)"
+"s":"Liquid State (song)",
+"a":551990232
 },
 {
 "t":"The 2nd Law: Unsustainable",
 "len":"3:47",
-"s":"Unsustainable (song)"
+"s":"Unsustainable (song)",
+"a":551990233
 },
 {
 "t":"The 2nd Law: Isolated System",
 "len":"4:59",
-"s":"Isolated System (song)"
+"s":"Isolated System (song)",
+"a":551990234
 }
 ],
 "img":"covers/the-2nd-law-album.jpg"
@@ -649,62 +856,74 @@ window.MUSE = {
 {
 "t":"Dead Inside",
 "len":"4:23",
-"s":"Dead Inside (song)"
+"s":"Dead Inside (song)",
+"a":973556120
 },
 {
 "t":"Drill Sergeant",
 "len":"0:21",
-"s":"Drill Sergeant (song)"
+"s":"Drill Sergeant (song)",
+"a":973556121
 },
 {
 "t":"Psycho",
 "len":"5:16",
-"s":"Psycho (song)"
+"s":"Psycho (song)",
+"a":973556122
 },
 {
 "t":"Mercy",
 "len":"3:51",
-"s":"Mercy (song)"
+"s":"Mercy (song)",
+"a":973556123
 },
 {
 "t":"Reapers",
 "len":"5:59",
-"s":"Reapers (song)"
+"s":"Reapers (song)",
+"a":973556124
 },
 {
 "t":"The Handler",
 "len":"4:33",
-"s":"The Handler (song)"
+"s":"The Handler (song)",
+"a":973556125
 },
 {
 "t":"JFK",
 "len":"0:54",
-"s":"JFK (song)"
+"s":"JFK (song)",
+"a":973556126
 },
 {
 "t":"Defector",
 "len":"4:32",
-"s":"Defector (song)"
+"s":"Defector (song)",
+"a":973556127
 },
 {
 "t":"Revolt",
 "len":"4:05",
-"s":"Revolt (song)"
+"s":"Revolt (song)",
+"a":973556128
 },
 {
 "t":"Aftermath",
 "len":"5:48",
-"s":"Aftermath (song)"
+"s":"Aftermath (song)",
+"a":973556129
 },
 {
 "t":"The Globalist",
 "len":"10:07",
-"s":"The Globalist (song)"
+"s":"The Globalist (song)",
+"a":973556130
 },
 {
 "t":"Drones",
 "len":"2:51",
-"s":"Drones (song)"
+"s":"Drones (song)",
+"a":973556131
 }
 ],
 "img":"covers/drones-album.jpg"
@@ -731,117 +950,138 @@ window.MUSE = {
 {
 "t":"Algorithm",
 "len":"4:05",
-"s":"Algorithm (song)"
+"s":"Algorithm (song)",
+"a":1434329350
 },
 {
 "t":"The Dark Side",
 "len":"3:47",
-"s":"The Dark Side (song)"
+"s":"The Dark Side (song)",
+"a":1434329533
 },
 {
 "t":"Pressure",
 "len":"3:55",
-"s":"Pressure (song)"
+"s":"Pressure (song)",
+"a":1434329534
 },
 {
 "t":"Propaganda",
 "len":"3:00",
-"s":"Propaganda (song)"
+"s":"Propaganda (song)",
+"a":1434329537
 },
 {
 "t":"Break It to Me",
 "len":"3:37",
-"s":"Break It to Me (song)"
+"s":"Break It to Me (song)",
+"a":1434329539
 },
 {
 "t":"Something Human",
 "len":"3:46",
-"s":"Something Human (song)"
+"s":"Something Human (song)",
+"a":1434329540
 },
 {
 "t":"Thought Contagion",
 "len":"3:26",
-"s":"Thought Contagion (song)"
+"s":"Thought Contagion (song)",
+"a":1434329542
 },
 {
 "t":"Get Up and Fight",
 "len":"4:04",
-"s":"Get Up and Fight (song)"
+"s":"Get Up and Fight (song)",
+"a":1434329553
 },
 {
 "t":"Blockades",
 "len":"3:50",
-"s":"Blockades (song)"
+"s":"Blockades (song)",
+"a":1434329554
 },
 {
 "t":"Dig Down",
 "len":"3:48",
-"s":"Dig Down (song)"
+"s":"Dig Down (song)",
+"a":1434329556
 },
 {
 "t":"The Void",
 "len":"4:44",
-"s":"The Void (song)"
+"s":"The Void (song)",
+"a":1434329558
 },
 {
 "t":"Algorithm (Alternate Reality Version)",
 "len":"3:32",
 "s":"Algorithm (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329560
 },
 {
 "t":"The Dark Side (Alternate Reality Version)",
 "len":"3:54",
 "s":"The Dark Side (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329744
 },
 {
 "t":"Pressure (Ft. UCLA Bruin Marching Band)",
 "len":"4:04",
 "s":"Pressure (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329534
 },
 {
 "t":"Propaganda (Acoustic)",
 "len":"2:58",
 "s":"Propaganda (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329746
 },
 {
 "t":"Break It To Me (Sam De Jong Remix)",
 "len":"3:08",
 "s":"Break It to Me (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329539
 },
 {
 "t":"Something Human (Acoustic)",
 "len":"3:46",
 "s":"Something Human (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329748
 },
 {
 "t":"Thought Contagion (Live)",
 "len":"4:08",
 "s":"Thought Contagion (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329542
 },
 {
 "t":"Dig Down (Acoustic Gospel Version)",
 "len":"3:57",
 "s":"Dig Down (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329752
 },
 {
 "t":"The Void (Acoustic)",
 "len":"4:34",
 "s":"The Void (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329558
 },
 {
 "t":"The Dark Side (Alternate Reality Instrumental)",
 "len":"2:53",
 "s":"The Dark Side (song)",
-"b":"CD 2"
+"b":"CD 2",
+"a":1434329744
 }
 ],
 "img":"covers/simulation-theory-album.jpg"
@@ -868,52 +1108,62 @@ window.MUSE = {
 {
 "t":"Will of the People",
 "len":"3:18",
-"s":"Will of the People (song)"
+"s":"Will of the People (song)",
+"a":1613405577
 },
 {
 "t":"Compliance",
 "len":"4:10",
-"s":"Compliance (song)"
+"s":"Compliance (song)",
+"a":1613405578
 },
 {
 "t":"Liberation",
 "len":"3:06",
-"s":"Liberation (song)"
+"s":"Liberation (song)",
+"a":1613405579
 },
 {
 "t":"Won't Stand Down",
 "len":"3:29",
-"s":"Won't Stand Down (song)"
+"s":"Won't Stand Down (song)",
+"a":1613405580
 },
 {
 "t":"Ghosts (How Can I Move On)",
 "len":"3:37",
-"s":"Ghosts (How Can I Move On) (song)"
+"s":"Ghosts (How Can I Move On) (song)",
+"a":1613405708
 },
 {
 "t":"You Make Me Feel Like It's Halloween",
 "len":"3:00",
-"s":"You Make Me Feel Like It's Halloween (song)"
+"s":"You Make Me Feel Like It's Halloween (song)",
+"a":1613405709
 },
 {
 "t":"Kill or Be Killed",
 "len":"4:59",
-"s":"Kill or Be Killed (song)"
+"s":"Kill or Be Killed (song)",
+"a":1613405710
 },
 {
 "t":"Verona",
 "len":"4:57",
-"s":"Verona (song)"
+"s":"Verona (song)",
+"a":1613405712
 },
 {
 "t":"Euphoria",
 "len":"3:23",
-"s":"Euphoria (song)"
+"s":"Euphoria (song)",
+"a":1613405713
 },
 {
 "t":"We Are Fucking Fucked",
 "len":"3:36",
-"s":"We Are Fucking Fucked (song)"
+"s":"We Are Fucking Fucked (song)",
+"a":1613405715
 }
 ],
 "img":"covers/will-of-the-people-album.jpg"
@@ -940,64 +1190,76 @@ window.MUSE = {
 {
 "t":"The Dark Forest",
 "len":"5:15",
-"s":"The Dark Forest (song)"
+"s":"The Dark Forest (song)",
+"a":1885607718
 },
 {
 "t":"Nightshift Superstar",
 "len":"4:07",
-"s":"Nightshift Superstar (song)"
+"s":"Nightshift Superstar (song)",
+"a":1885607719
 },
 {
 "t":"Shimmering Scars",
 "len":"4:28",
-"s":"Shimmering Scars (song)"
+"s":"Shimmering Scars (song)",
+"a":1885607724
 },
 {
 "t":"Cryogen",
 "len":"5:01",
-"s":"Cryogen (song)"
+"s":"Cryogen (song)",
+"a":1885607726
 },
 {
 "t":"Be With You",
 "len":"3:35",
-"s":"Be With You (song)"
+"s":"Be With You (song)",
+"a":1885607727
 },
 {
 "t":"Hexagons",
 "len":"5:26",
-"s":"Hexagons (song)"
+"s":"Hexagons (song)",
+"a":1885607736
 },
 {
 "t":"The Sickness In You & I",
 "len":"4:17",
-"s":"The Sickness In You & I (song)"
+"s":"The Sickness In You & I (song)",
+"a":1885607739
 },
 {
 "t":"Unravelling",
 "len":"3:58",
-"s":"Unravelling (song)"
+"s":"Unravelling (song)",
+"a":1885607740
 },
 {
 "t":"Hush (feat. Ellie Goulding)",
 "len":"3:55",
-"s":"Hush (song)"
+"s":"Hush (song)",
+"a":1885607742
 },
 {
 "t":"Space Debris",
 "len":"5:23",
-"s":"Space Debris (song)"
+"s":"Space Debris (song)",
+"a":1885607743
 },
 {
 "t":"Be With You (Live at Brixton Academy)",
 "len":"3:47",
 "s":"Be With You (song)",
-"b":"JP CD"
+"b":"JP CD",
+"a":1885607727
 },
 {
 "t":"Unravelling (Live at Brixton Academy)",
 "len":"4:45",
 "s":"Unravelling (song)",
-"b":"JP CD"
+"b":"JP CD",
+"a":1885607740
 }
 ],
 "img":"covers/the-wow-signal-album.jpg"
@@ -1024,22 +1286,26 @@ window.MUSE = {
 {
 "t":"Overdue",
 "len":"4:09",
-"s":"Overdue (song)"
+"s":"Overdue (song)",
+"a":991516221
 },
 {
 "t":"Cave",
 "len":"4:44",
-"s":"Cave (song)"
+"s":"Cave (song)",
+"a":991516215
 },
 {
 "t":"Coma",
 "len":"3:34",
-"s":"Coma (song)"
+"s":"Coma (song)",
+"a":319622506
 },
 {
 "t":"Escape",
 "len":"3:20",
-"s":"Escape (song)"
+"s":"Escape (song)",
+"a":991516220
 }
 ],
 "img":"covers/muse-ep.jpg"
@@ -1066,22 +1332,26 @@ window.MUSE = {
 {
 "t":"Muscle Museum",
 "len":"4:20",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":1115765057
 },
 {
 "t":"Sober",
 "len":"4:02",
-"s":"Sober (song)"
+"s":"Sober (song)",
+"a":991516219
 },
 {
 "t":"Uno",
 "len":"3:46",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":991516218
 },
 {
 "t":"Unintended",
 "len":"3:56",
-"s":"Unintended (song)"
+"s":"Unintended (song)",
+"a":991516217
 },
 {
 "t":"Instant Messenger",
@@ -1118,12 +1388,14 @@ window.MUSE = {
 {
 "t":"Host",
 "len":"4:17",
-"s":"Host (song)"
+"s":"Host (song)",
+"a":319622503
 },
 {
 "t":"Coma",
 "len":"3:36",
-"s":"Coma (song)"
+"s":"Coma (song)",
+"a":319622506
 },
 {
 "t":"Pink Ego Box",
@@ -1133,47 +1405,55 @@ window.MUSE = {
 {
 "t":"Forced In",
 "len":"5:09",
-"s":"Forced In (song)"
+"s":"Forced In (song)",
+"a":138265370
 },
 {
 "t":"Agitated",
 "len":"2:21",
-"s":"Agitated (song)"
+"s":"Agitated (song)",
+"a":319620362
 },
 {
 "t":"Yes Please",
 "len":"3:06",
-"s":"Yes Please (song)"
+"s":"Yes Please (song)",
+"a":138265721
 },
 {
 "t":"Fillip",
 "v":"(Live)",
 "len":"3:48",
-"s":"Fillip (song)"
+"s":"Fillip (song)",
+"a":991516213
 },
 {
 "t":"Do We Need This",
 "v":"(Live)",
 "len":"4:13",
-"s":"Do We Need This (song)"
+"s":"Do We Need This (song)",
+"a":1115765063
 },
 {
 "t":"Sunburn (Timo Maas Sunstroke Mix)",
 "v":"(hidden)",
 "len":"6:44",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Sunburn (Timo Maas Breakz Again Mix)",
 "v":"(hidden)",
 "len":"5:26",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Sunburn (Steven McCreery Remix)",
 "v":"(hidden)",
 "len":"7:37",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 }
 ],
 "img":"covers/random-1-8-ep.jpg"
@@ -1195,19 +1475,22 @@ window.MUSE = {
 "t":"Uprising",
 "v":"(Live From The LCCC, Manchester, England)",
 "len":"7:12",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":728375648
 },
 {
 "t":"Starlight",
 "v":"(Live From San Siro, Milan, Italy)",
 "len":"4:44",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":275506115
 },
 {
 "t":"Stockholm Syndrome",
 "v":"(Live From Stade De France, Paris, France)",
 "len":"7:29",
-"s":"Stockholm Syndrome (song)"
+"s":"Stockholm Syndrome (song)",
+"a":275506120
 }
 ],
 "img":"covers/summer-stadiums-2010-ep-ep.jpg"
@@ -1230,22 +1513,26 @@ window.MUSE = {
 {
 "t":"Psycho",
 "len":"5:46",
-"s":"Psycho (song)"
+"s":"Psycho (song)",
+"a":973556122
 },
 {
 "t":"Supremacy",
 "len":"4:58",
-"s":"Supremacy (song)"
+"s":"Supremacy (song)",
+"a":551989942
 },
 {
 "t":"Mercy",
 "len":"3:58",
-"s":"Mercy (song)"
+"s":"Mercy (song)",
+"a":973556123
 },
 {
 "t":"Reapers",
 "len":"5:59",
-"s":"Reapers (song)"
+"s":"Reapers (song)",
+"a":973556124
 }
 ],
 "img":"covers/live-at-koln-gloria-theatre-ep.jpg"
@@ -1268,7 +1555,8 @@ window.MUSE = {
 {
 "t":"Pressure",
 "len":"3:56",
-"s":"Pressure (song)"
+"s":"Pressure (song)",
+"a":1434329534
 },
 {
 "t":"Hungry Like the Wolf",
@@ -1301,23 +1589,27 @@ window.MUSE = {
 {
 "t":"Uno",
 "len":"3:40",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":991516218
 },
 {
 "t":"Jimmy Kane",
 "len":"3:28",
-"s":"Jimmy Kane (song)"
+"s":"Jimmy Kane (song)",
+"a":319620349
 },
 {
 "t":"Forced In",
 "len":"5:10",
-"s":"Forced In (song)"
+"s":"Forced In (song)",
+"a":319620359
 },
 {
 "t":"Uno",
 "v":"(Radio Edit)",
 "len":"3:01",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":991516218
 },
 {
 "t":"Pink Ego Box",
@@ -1327,24 +1619,28 @@ window.MUSE = {
 {
 "t":"Do We Need This",
 "len":"4:17",
-"s":"Do We Need This (song)"
+"s":"Do We Need This (song)",
+"a":1115765063
 },
 {
 "t":"Uno",
 "v":"(Album Version)",
 "len":"3:39",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":991516218
 },
 {
 "t":"Uno",
 "v":"(Alternative Version)",
 "len":"3:45",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":991516218
 },
 {
 "t":"Agitated",
 "len":"2:23",
-"s":"Agitated (song)"
+"s":"Agitated (song)",
+"a":319620362
 }
 ],
 "img":"covers/uno-single.jpg"
@@ -1372,33 +1668,39 @@ window.MUSE = {
 {
 "t":"Cave",
 "len":"4:48",
-"s":"Cave (song)"
+"s":"Cave (song)",
+"a":991516215
 },
 {
 "t":"Twin",
 "len":"3:17",
-"s":"Twin (song)"
+"s":"Twin (song)",
+"a":319622500
 },
 {
 "t":"Cave",
 "v":"(Remix)",
 "len":"5:07",
-"s":"Cave (song)"
+"s":"Cave (song)",
+"a":319622468
 },
 {
 "t":"Host",
 "len":"4:19",
-"s":"Host (song)"
+"s":"Host (song)",
+"a":319622503
 },
 {
 "t":"Coma",
 "len":"3:35",
-"s":"Coma (song)"
+"s":"Coma (song)",
+"a":319622506
 },
 {
 "t":"Cave",
 "v":"(Instrumental Remix)",
-"s":"Cave (song)"
+"s":"Cave (song)",
+"a":319622470
 }
 ],
 "img":"covers/cave-single.jpg"
@@ -1427,24 +1729,28 @@ window.MUSE = {
 "t":"Muscle Museum",
 "v":"(Album Version)",
 "len":"4:25",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":991516212
 },
 {
 "t":"Do We Need This",
 "len":"4:17",
-"s":"Do We Need This (song)"
+"s":"Do We Need This (song)",
+"a":1115765063
 },
 {
 "t":"Muscle Museum",
 "v":"(Live Acoustic)",
 "len":"4:45",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":1115765062
 },
 {
 "t":"Muscle Museum",
 "v":"(Full Length Version)",
 "len":"5:29",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":991516212
 },
 {
 "t":"Pink Ego Box",
@@ -1454,83 +1760,97 @@ window.MUSE = {
 {
 "t":"Con-Science",
 "len":"4:52",
-"s":"Con-Science (song)"
+"s":"Con-Science (song)",
+"a":1115765197
 },
 {
 "t":"Muscle Museum",
 "len":"4:25",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":991516212
 },
 {
 "t":"Minimum",
 "len":"2:44",
-"s":"Minimum (song)"
+"s":"Minimum (song)",
+"a":1115765199
 },
 {
 "t":"Muscle Museum",
 "v":"(US Mix)",
 "len":"4:29",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":991516212
 },
 {
 "t":"Agitated",
 "v":"(Live)",
 "len":"3:14",
-"s":"Agitated (song)"
+"s":"Agitated (song)",
+"a":138269979
 },
 {
 "t":"Sunburn",
 "v":"(Timo Mass Sunstroke Mix)",
 "len":"6:46",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Muscle Museum",
 "v":"(Live Video)",
 "len":"4:29",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":138269673
 },
 {
 "t":"Sober",
 "v":"(Saint US Mix)",
 "len":"4:06",
-"s":"Sober (song)"
+"s":"Sober (song)",
+"a":991516219
 },
 {
 "t":"Muscle Museum",
 "v":"(Soulwax Mix)",
 "len":"3:43",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":991516212
 },
 {
 "t":"Escape",
 "v":"(Live Oui FM)",
 "len":"3:32",
-"s":"Escape (song)"
+"s":"Escape (song)",
+"a":991516220
 },
 {
 "t":"Do We Need This",
 "v":"(Live)",
 "len":"4:20",
-"s":"Do We Need This (song)"
+"s":"Do We Need This (song)",
+"a":1115765063
 },
 {
 "t":"Muscle Museum",
 "v":"(Soulwax Remix)",
 "len":"3:44",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":991516212
 },
 {
 "t":"Sunburn",
 "v":"(Timo Maas Sunstroke Mix)",
 "len":"6:47",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Escape",
 "v":"(Live)",
 "len":"3:34",
-"s":"Escape (song)"
+"s":"Escape (song)",
+"a":991516220
 }
 ],
 "img":"covers/muscle-museum-single.jpg"
@@ -1558,53 +1878,62 @@ window.MUSE = {
 {
 "t":"Sunburn",
 "len":"3:54",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Ashamed",
 "len":"3:47",
-"s":"Ashamed (song)"
+"s":"Ashamed (song)",
+"a":321300057
 },
 {
 "t":"Sunburn",
 "v":"(Live)",
 "len":"3:49",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":321300045
 },
 {
 "t":"Yes Please",
 "len":"3:06",
-"s":"Yes Please (song)"
+"s":"Yes Please (song)",
+"a":321300092
 },
 {
 "t":"Uno",
 "v":"(Live)",
 "len":"3:49",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":321300123
 },
 {
 "t":"Sunburn",
 "v":"(Radio Edit)",
 "len":"3:37",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Sunburn",
 "v":"(Acoustic)",
 "len":"4:13",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Uno",
 "v":"(Live Version)",
 "len":"3:22",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":321300123
 },
 {
 "t":"Sunburn",
 "v":"(Live Acoustic)",
 "len":"4:15",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":321300045
 }
 ],
 "img":"covers/sunburn-single.jpg"
@@ -1632,41 +1961,48 @@ window.MUSE = {
 {
 "t":"Unintended",
 "len":"3:57",
-"s":"Unintended (song)"
+"s":"Unintended (song)",
+"a":991516217
 },
 {
 "t":"Recess",
 "len":"3:35",
-"s":"Recess (song)"
+"s":"Recess (song)",
+"a":319622111
 },
 {
 "t":"Falling Down",
 "v":"(Acoustic Ouï FM)",
 "len":"5:12",
-"s":"Falling Down (song)"
+"s":"Falling Down (song)",
+"a":319622112
 },
 {
 "t":"Unintended",
 "v":"(Enhanced Video)",
 "len":"4:00",
-"s":"Unintended (song)"
+"s":"Unintended (song)",
+"a":991516217
 },
 {
 "t":"Nishe",
 "len":"2:45",
-"s":"Nishe (song)"
+"s":"Nishe (song)",
+"a":319622115
 },
 {
 "t":"Hate This and I'll Love You",
 "v":"(Acoustic Ouï FM)",
 "len":"5:02",
-"s":"Hate This and I'll Love You (song)"
+"s":"Hate This and I'll Love You (song)",
+"a":319622118
 },
 {
 "t":"Sober",
 "v":"(Live)",
 "len":"4:07",
-"s":"Sober (song)"
+"s":"Sober (song)",
+"a":319622119
 }
 ],
 "img":"covers/unintended-single.jpg"
@@ -1693,27 +2029,32 @@ window.MUSE = {
 {
 "t":"Plug In Baby",
 "len":"3:41",
-"s":"Plug In Baby (song)"
+"s":"Plug In Baby (song)",
+"a":992088663
 },
 {
 "t":"Nature_1",
 "len":"3:40",
-"s":"Nature_1 (song)"
+"s":"Nature_1 (song)",
+"a":319621879
 },
 {
 "t":"Execution Commentary",
 "len":"2:30",
-"s":"Execution Commentary (song)"
+"s":"Execution Commentary (song)",
+"a":319621882
 },
 {
 "t":"Spiral Static",
 "len":"4:44",
-"s":"Spiral Static (song)"
+"s":"Spiral Static (song)",
+"a":319621884
 },
 {
 "t":"Bedroom Acoustics",
 "len":"2:35",
-"s":"Bedroom Acoustics (song)"
+"s":"Bedroom Acoustics (song)",
+"a":319621886
 }
 ],
 "img":"covers/plug-in-baby-single.jpg"
@@ -1741,40 +2082,47 @@ window.MUSE = {
 {
 "t":"New Born",
 "len":"6:04",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":992088659
 },
 {
 "t":"Shrinking Universe",
 "len":"3:08",
-"s":"Shrinking Universe (song)"
+"s":"Shrinking Universe (song)",
+"a":319621483
 },
 {
 "t":"Piano Thing",
 "len":"2:53",
-"s":"Piano Thing (song)"
+"s":"Piano Thing (song)",
+"a":319621485
 },
 {
 "t":"Map of Your Head",
 "len":"4:28",
-"s":"Map of Your Head (song)"
+"s":"Map of Your Head (song)",
+"a":319621491
 },
 {
 "t":"Plug In Baby",
 "v":"(Live)",
 "len":"3:33",
-"s":"Plug In Baby (song)"
+"s":"Plug In Baby (song)",
+"a":319621493
 },
 {
 "t":"New Born",
 "v":"(Paul Oakenfold Perfecto Remix)",
 "len":"6:15",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":319621468
 },
 {
 "t":"New Born",
 "v":"(Oakenfold Perfecto Remix)",
 "len":"7:02",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":319621468
 }
 ],
 "img":"covers/new-born-single.jpg"
@@ -1802,29 +2150,34 @@ window.MUSE = {
 {
 "t":"Bliss",
 "len":"4:36",
-"s":"Bliss (song)"
+"s":"Bliss (song)",
+"a":992088660
 },
 {
 "t":"The Gallery",
 "len":"3:32",
-"s":"The Gallery (song)"
+"s":"The Gallery (song)",
+"a":319621321
 },
 {
 "t":"Screenager",
 "v":"(Live)",
 "len":"4:01",
-"s":"Screenager (song)"
+"s":"Screenager (song)",
+"a":319621423
 },
 {
 "t":"Hyper Chondriac Music",
 "len":"5:30",
-"s":"Hyper Chondriac Music (song)"
+"s":"Hyper Chondriac Music (song)",
+"a":319621439
 },
 {
 "t":"New Born",
 "v":"(Live)",
 "len":"5:59",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":319621442
 }
 ],
 "img":"covers/bliss-single.jpg"
@@ -1852,55 +2205,65 @@ window.MUSE = {
 {
 "t":"Hyper Music",
 "len":"3:25",
-"s":"Hyper Music (song)"
+"s":"Hyper Music (song)",
+"a":992088662
 },
 {
 "t":"Feeling Good",
 "v":"(Live)",
 "len":"3:12",
-"s":"Feeling Good (song)"
+"s":"Feeling Good (song)",
+"a":319621244
 },
 {
 "t":"Shine",
 "len":"3:22",
-"s":"Shine (song)"
+"s":"Shine (song)",
+"a":319621245
 },
 {
 "t":"Feeling Good",
 "len":"3:16",
-"s":"Feeling Good (song)"
+"s":"Feeling Good (song)",
+"a":992089118
 },
 {
 "t":"Hyper Music",
 "v":"(Live)",
 "len":"3:27",
-"s":"Hyper Music (song)"
+"s":"Hyper Music (song)",
+"a":319621238
 },
 {
 "t":"Please Please Please Let Me Get What I Want",
 "len":"1:59",
-"s":"Please Please Please, Let Me Get What I Want (song)"
+"s":"Please Please Please, Let Me Get What I Want (song)",
+"a":319621250
 },
 {
 "t":"Feeling Good TMF Café Recording",
-"s":"Feeling Good (song)"
+"s":"Feeling Good (song)",
+"a":992089118
 },
 {
 "t":"Please, Please, Please Let Me get What I Want",
 "len":"1:59",
-"s":"Please Please Please, Let Me Get What I Want (song)"
+"s":"Please Please Please, Let Me Get What I Want (song)",
+"a":319621250
 },
 {
 "t":"Hyper Music",
 "v":"(Live)",
 "len":"3:27",
-"s":"Hyper Music (song)"
+"s":"Hyper Music (song)",
+"a":319621238
 },
 {
 "t":"Feeling Good",
 "v":"(Live at Wembley Stadium)",
 "len":"3:40",
-"s":"Feeling Good (song)"
+"s":"Feeling Good (song)",
+"a":319621244
 }
 ],
 "img":"covers/hyper-music-feeling-good-single.jpg"
@@ -1928,39 +2291,46 @@ window.MUSE = {
 {
 "t":"Dead Star",
 "len":"3:42",
-"s":"Dead Star (song)"
+"s":"Dead Star (song)",
+"a":319620675
 },
 {
 "t":"In Your World",
 "len":"2:36",
-"s":"In Your World (song)"
+"s":"In Your World (song)",
+"a":319620684
 },
 {
 "t":"Futurism",
 "len":"3:27",
-"s":"Futurism (song)"
+"s":"Futurism (song)",
+"a":319620927
 },
 {
 "t":"Can't Take My Eyes Off You",
 "len":"3:31",
-"s":"Can't Take My Eyes Off You (song)"
+"s":"Can't Take My Eyes Off You (song)",
+"a":319620942
 },
 {
 "t":"Dead Star Instrumental",
 "len":"3:42",
-"s":"Dead Star (song)"
+"s":"Dead Star (song)",
+"a":319620675
 },
 {
 "t":"In Your World",
 "v":"(Live)",
 "len":"3:10",
-"s":"In Your World (song)"
+"s":"In Your World (song)",
+"a":138269457
 },
 {
 "t":"Dead Star",
 "v":"(Live)",
 "len":"4:11",
-"s":"Dead Star (song)"
+"s":"Dead Star (song)",
+"a":319620675
 }
 ],
 "img":"covers/dead-star-in-your-world-single.jpg"
@@ -1988,7 +2358,8 @@ window.MUSE = {
 {
 "t":"Stockholm Syndrome",
 "len":"4:58",
-"s":"Stockholm Syndrome (song)"
+"s":"Stockholm Syndrome (song)",
+"a":1716096825
 }
 ],
 "img":"covers/stockholm-syndrome-single.jpg"
@@ -2018,12 +2389,14 @@ window.MUSE = {
 {
 "t":"Time Is Running Out",
 "len":"3:56",
-"s":"Time Is Running Out (song)"
+"s":"Time Is Running Out (song)",
+"a":317961145
 },
 {
 "t":"The Groove",
 "len":"2:38",
-"s":"The Groove (song)"
+"s":"The Groove (song)",
+"a":317961146
 }
 ],
 "img":"covers/time-is-running-out-single.jpg"
@@ -2052,18 +2425,21 @@ window.MUSE = {
 {
 "t":"Hysteria",
 "len":"3:47",
-"s":"Hysteria (song)"
+"s":"Hysteria (song)",
+"a":317961372
 },
 {
 "t":"Eternally Missed",
 "len":"6:05",
-"s":"Eternally Missed (song)"
+"s":"Eternally Missed (song)",
+"a":317961373
 },
 {
 "t":"Hysteria",
 "v":"(Live)",
 "len":"4:06",
-"s":"Hysteria (song)"
+"s":"Hysteria (song)",
+"a":275506110
 }
 ],
 "img":"covers/hysteria-single.jpg"
@@ -2095,66 +2471,77 @@ window.MUSE = {
 "t":"Sing for Absolution",
 "v":"(Full Length US Remix)",
 "len":"5:01",
-"s":"Sing for Absolution (song)"
+"s":"Sing for Absolution (song)",
+"a":317961323
 },
 {
 "t":"Fury",
 "len":"4:59",
-"s":"Fury (song)"
+"s":"Fury (song)",
+"a":1716097102
 },
 {
 "t":"Sing for Absolution",
 "v":"(Radio Edit)",
 "len":"3:44",
-"s":"Sing for Absolution (song)"
+"s":"Sing for Absolution (song)",
+"a":1716096824
 },
 {
 "t":"Bliss",
 "v":"(Live in Ahoy, 6 November 2003)",
 "len":"4:05",
-"s":"Bliss (song)"
+"s":"Bliss (song)",
+"a":992088660
 },
 {
 "t":"Sunburn",
 "v":"(Live in Ahoy, 6 November 2003)",
 "len":"4:08",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":321300045
 },
 {
 "t":"Feeling Good",
 "v":"(Live in Ahoy, 6 November 2003)",
 "len":"3:31",
-"s":"Feeling Good (song)"
+"s":"Feeling Good (song)",
+"a":319621244
 },
 {
 "t":"Sing for Absolution",
 "v":"(Album Version) (Audio)",
 "len":"4:54",
-"s":"Sing for Absolution (song)"
+"s":"Sing for Absolution (song)",
+"a":1716096824
 },
 {
 "t":"Sing for Absolution",
 "v":"(Live)",
 "len":"4:50",
-"s":"Sing for Absolution (song)"
+"s":"Sing for Absolution (song)",
+"a":1716102077
 },
 {
 "t":"Time Is Running Out",
 "v":"(Live)",
 "len":"4:15",
-"s":"Time Is Running Out (song)"
+"s":"Time Is Running Out (song)",
+"a":275506116
 },
 {
 "t":"Ruled by Secrecy",
 "v":"(Live)",
 "len":"4:52",
-"s":"Ruled by Secrecy (song)"
+"s":"Ruled by Secrecy (song)",
+"a":1716097106
 },
 {
 "t":"The Small Print",
 "v":"(Live)",
 "len":"3:47",
-"s":"The Small Print (song)"
+"s":"The Small Print (song)",
+"a":1716097101
 }
 ],
 "img":"covers/sing-for-absolution-single.jpg"
@@ -2182,7 +2569,8 @@ window.MUSE = {
 "t":"Apocalypse Please",
 "v":"(Live)",
 "len":"4:48",
-"s":"Apocalypse Please (song)"
+"s":"Apocalypse Please (song)",
+"a":1716096822
 }
 ],
 "img":"covers/apocalypse-please-single.jpg"
@@ -2211,30 +2599,35 @@ window.MUSE = {
 "t":"Butterflies & Hurricanes",
 "v":"(Remix With Additional Guitars Full Length Version)",
 "len":"5:00",
-"s":"Butterflies & Hurricanes (song)"
+"s":"Butterflies & Hurricanes (song)",
+"a":317960928
 },
 {
 "t":"Sing for Absolution",
 "v":"(Radio 2 Acoustic Performance)",
 "len":"4:32",
-"s":"Sing for Absolution (song)"
+"s":"Sing for Absolution (song)",
+"a":317960931
 },
 {
 "t":"Butterflies & Hurricanes",
 "v":"(Live at Glastonbury 2004)",
 "len":"6:16",
-"s":"Butterflies & Hurricanes (song)"
+"s":"Butterflies & Hurricanes (song)",
+"a":317960930
 },
 {
 "t":"Butterflies & Hurricanes",
 "len":"5:01",
-"s":"Butterflies & Hurricanes (song)"
+"s":"Butterflies & Hurricanes (song)",
+"a":1716097100
 },
 {
 "t":"Sing for Absolution",
 "v":"(Acoustic Radio 2)",
 "len":"4:32",
-"s":"Sing for Absolution (song)"
+"s":"Sing for Absolution (song)",
+"a":317960931
 }
 ],
 "img":"covers/butterflies-hurricanes-single.jpg"
@@ -2262,37 +2655,43 @@ window.MUSE = {
 {
 "t":"Knights of Cydonia",
 "len":"6:06",
-"s":"Knights of Cydonia (song)"
+"s":"Knights of Cydonia (song)",
+"a":992222005
 },
 {
 "t":"Supermassive Black Hole",
 "v":"(Live)",
 "len":"3:51",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":317961422
 },
 {
 "t":"Assassin",
 "v":"(Grand Omega Bosses Edit)",
 "len":"5:19",
-"s":"Assassin (song)"
+"s":"Assassin (song)",
+"a":317961423
 },
 {
 "t":"Knights of Cydonia",
 "v":"(AOL Session)",
 "len":"6:28",
-"s":"Knights of Cydonia (song)"
+"s":"Knights of Cydonia (song)",
+"a":317961421
 },
 {
 "t":"Supermassive Black Hole",
 "v":"(Live from Lisbon)",
 "len":"3:51",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":317961422
 },
 {
 "t":"Knights of Cydonia",
 "v":"(live at Palacio Deportes, Madrid) - 7:33",
 "len":"7:33",
-"s":"Knights of Cydonia (song)"
+"s":"Knights of Cydonia (song)",
+"a":539724381
 }
 ],
 "img":"covers/knights-of-cydonia-single.jpg"
@@ -2322,12 +2721,14 @@ window.MUSE = {
 {
 "t":"Supermassive Black Hole",
 "len":"3:29",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":992221997
 },
 {
 "t":"Crying Shame",
 "len":"2:35",
-"s":"Crying Shame (song)"
+"s":"Crying Shame (song)",
+"a":317961310
 }
 ],
 "img":"covers/supermassive-black-hole-single.jpg"
@@ -2357,30 +2758,35 @@ window.MUSE = {
 {
 "t":"Starlight",
 "len":"4:03",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":992221996
 },
 {
 "t":"Easily",
 "len":"3:40",
-"s":"Easily (song)"
+"s":"Easily (song)",
+"a":317961453
 },
 {
 "t":"Starlight",
 "v":"(Video - Making Of)",
 "len":"11:06",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":992221996
 },
 {
 "t":"Supermassive Black Hole",
 "v":"(Phones Control Voltage Remix)",
 "len":"4:16",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":317961449
 },
 {
 "t":"Starlight",
 "v":"(AOL Session)",
 "len":"4:31",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":317961448
 }
 ],
 "img":"covers/starlight-single.jpg"
@@ -2408,24 +2814,28 @@ window.MUSE = {
 {
 "t":"Invincible",
 "len":"5:00",
-"s":"Invincible (song)"
+"s":"Invincible (song)",
+"a":992222000
 },
 {
 "t":"Knights of Cydonia",
 "v":"(Simian Mobile Disco Remix)",
 "len":"4:51",
-"s":"Knights of Cydonia (song)"
+"s":"Knights of Cydonia (song)",
+"a":317961399
 },
 {
 "t":"Glorious",
 "len":"4:41",
-"s":"Glorious (song)"
+"s":"Glorious (song)",
+"a":992222006
 },
 {
 "t":"Invincible",
 "v":"(Live in Milan)",
 "len":"6:05",
-"s":"Invincible (song)"
+"s":"Invincible (song)",
+"a":317961397
 }
 ],
 "img":"covers/invincible-single.jpg"
@@ -2453,31 +2863,36 @@ window.MUSE = {
 {
 "t":"Map of the Problematique",
 "len":"4:18",
-"s":"Map of the Problematique (song)"
+"s":"Map of the Problematique (song)",
+"a":992221998
 },
 {
 "t":"Map of the Problematique",
 "v":"(Does It Offend You, Yeah? Remix)",
 "len":"4:24",
-"s":"Map of the Problematique (song)"
+"s":"Map of the Problematique (song)",
+"a":317961100
 },
 {
 "t":"Map of the Problematique",
 "v":"(AOL session)",
 "len":"4:25",
-"s":"Map of the Problematique (song)"
+"s":"Map of the Problematique (song)",
+"a":317961102
 },
 {
 "t":"Map of the Problematique",
 "v":"(Live from Wembley Stadium)",
 "len":"5:05",
-"s":"Map of the Problematique (song)"
+"s":"Map of the Problematique (song)",
+"a":275506112
 },
 {
 "t":"Map of the Problematique",
 "v":"(Rich Costey Edit)",
 "len":"3:40",
-"s":"Map of the Problematique (song)"
+"s":"Map of the Problematique (song)",
+"a":992221998
 }
 ],
 "img":"covers/map-of-the-problematique-single.jpg"
@@ -2503,7 +2918,8 @@ window.MUSE = {
 {
 "t":"United States of Eurasia",
 "len":"3:50",
-"s":"United States of Eurasia (song)"
+"s":"United States of Eurasia (song)",
+"a":991509847
 }
 ],
 "img":"covers/united-states-of-eurasia-single.jpg"
@@ -2531,13 +2947,15 @@ window.MUSE = {
 {
 "t":"Uprising",
 "len":"5:02",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":991509754
 },
 {
 "t":"Uprising",
 "v":"(Does It Offend You Yeah? Mix)",
 "len":"4:00",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":539822008
 },
 {
 "t":"Who Knows Who",
@@ -2548,19 +2966,22 @@ window.MUSE = {
 "t":"Uprising",
 "v":"(Live from Teignmouth)",
 "len":"5:37",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":421081254
 },
 {
 "t":"Undisclosed Desires",
 "v":"(Thin White Duke Remix)",
 "len":"7:40",
-"s":"Undisclosed Desires (song)"
+"s":"Undisclosed Desires (song)",
+"a":356147125
 },
 {
 "t":"Uprising",
 "v":"(Live at the 53rd Annual Grammy Awards)",
 "len":"4:42",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":421081254
 }
 ],
 "img":"covers/uprising-single.jpg"
@@ -2590,37 +3011,43 @@ window.MUSE = {
 {
 "t":"Undisclosed Desires",
 "len":"3:56",
-"s":"Undisclosed Desires (song)"
+"s":"Undisclosed Desires (song)",
+"a":991509846
 },
 {
 "t":"Undisclosed Desires",
 "v":"(Thin White Duke Remix)",
 "len":"7:40",
-"s":"Undisclosed Desires (song)"
+"s":"Undisclosed Desires (song)",
+"a":356147125
 },
 {
 "t":"Undisclosed Desires",
 "v":"(Thin White Duke Remix (edit))",
 "len":"4:51",
-"s":"Undisclosed Desires (song)"
+"s":"Undisclosed Desires (song)",
+"a":356147129
 },
 {
 "t":"Undisclosed Desires",
 "v":"(The Big Pink Remix)",
 "len":"4:30",
-"s":"Undisclosed Desires (song)"
+"s":"Undisclosed Desires (song)",
+"a":356147125
 },
 {
 "t":"Undisclosed Desires",
 "v":"(Live from Madrid)",
 "len":"4:30",
-"s":"Undisclosed Desires (song)"
+"s":"Undisclosed Desires (song)",
+"a":991509846
 },
 {
 "t":"Undisclosed Desires",
 "v":"(Album Version)",
 "len":"3:56",
-"s":"Undisclosed Desires (song)"
+"s":"Undisclosed Desires (song)",
+"a":991509846
 }
 ],
 "img":"covers/undisclosed-desires-single.jpg"
@@ -2648,12 +3075,14 @@ window.MUSE = {
 {
 "t":"Resistance",
 "len":"5:47",
-"s":"Resistance (song)"
+"s":"Resistance (song)",
+"a":991509845
 },
 {
 "t":"Prague",
 "len":"3:36",
-"s":"Prague (song)"
+"s":"Prague (song)",
+"a":413910923
 },
 {
 "t":"Popcorn",
@@ -2664,19 +3093,22 @@ window.MUSE = {
 "t":"Resistance",
 "v":"(Tiësto Remix)",
 "len":"8:10",
-"s":"Resistance (song)"
+"s":"Resistance (song)",
+"a":413910922
 },
 {
 "t":"Resistance",
 "v":"(Album Version)",
 "len":"5:47",
-"s":"Resistance (song)"
+"s":"Resistance (song)",
+"a":991509845
 },
 {
 "t":"Resistance",
 "v":"(Radio Edit)",
 "len":"4:01",
-"s":"Resistance (song)"
+"s":"Resistance (song)",
+"a":356146836
 }
 ],
 "img":"covers/resistance-single.jpg"
@@ -2710,13 +3142,15 @@ window.MUSE = {
 "t":"Uprising",
 "v":"(Live from Teignmouth)",
 "len":"5:37",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":728375648
 },
 {
 "t":"Resistance",
 "v":"(Live from Lisbon)",
 "len":"5:36",
-"s":"Resistance (song)"
+"s":"Resistance (song)",
+"a":728375638
 }
 ],
 "img":"covers/exogenesis-symphony-single.jpg"
@@ -2743,7 +3177,8 @@ window.MUSE = {
 {
 "t":"Neutron Star Collision (Love Is Forever)",
 "len":"3:50",
-"s":"Neutron Star Collision (Love Is Forever) (song)"
+"s":"Neutron Star Collision (Love Is Forever) (song)",
+"a":372196352
 }
 ],
 "img":"covers/neutron-star-collision-love-is-forever-single.jpg"
@@ -2765,7 +3200,8 @@ window.MUSE = {
 {
 "t":"MK Ultra",
 "len":"4:06",
-"s":"MK ULTRA (song)"
+"s":"MK ULTRA (song)",
+"a":991509856
 }
 ],
 "img":"covers/mk-ultra-single.jpg"
@@ -2792,7 +3228,8 @@ window.MUSE = {
 {
 "t":"Survival",
 "len":"4:17",
-"s":"Survival (song)"
+"s":"Survival (song)",
+"a":551989946
 }
 ],
 "img":"covers/survival-single.jpg"
@@ -2819,7 +3256,8 @@ window.MUSE = {
 {
 "t":"Madness",
 "len":"4:39",
-"s":"Madness (song)"
+"s":"Madness (song)",
+"a":551989943
 }
 ],
 "img":"covers/madness-single.jpg"
@@ -2847,13 +3285,15 @@ window.MUSE = {
 "t":"Follow Me",
 "v":"(Live from the O2, London)",
 "len":"3:57",
-"s":"Follow Me (song)"
+"s":"Follow Me (song)",
+"a":728375643
 },
 {
 "t":"Follow Me",
 "v":"(Jacques Lu Cont's Thin White Duke Remix)",
 "len":"5:54",
-"s":"Follow Me (song)"
+"s":"Follow Me (song)",
+"a":551989947
 }
 ],
 "img":"covers/follow-me-single.jpg"
@@ -2880,7 +3320,8 @@ window.MUSE = {
 "t":"Supremacy",
 "v":"(Live from the BRITs 2013)",
 "len":"4:47",
-"s":"Supremacy (song)"
+"s":"Supremacy (song)",
+"a":728375636
 }
 ],
 "img":"covers/supremacy-single.jpg"
@@ -2907,7 +3348,8 @@ window.MUSE = {
 {
 "t":"Big Freeze (Radio Edit)",
 "len":"3:43",
-"s":"Big Freeze (song)"
+"s":"Big Freeze (song)",
+"a":551990230
 }
 ],
 "img":"covers/big-freeze-single.jpg"
@@ -2934,37 +3376,43 @@ window.MUSE = {
 {
 "t":"Panic Station",
 "len":"3:04",
-"s":"Panic Station (song)"
+"s":"Panic Station (song)",
+"a":551989944
 },
 {
 "t":"Panic Station",
 "v":"(Alternate Version Mixed by Madeon)",
 "len":"2:53",
-"s":"Panic Station (song)"
+"s":"Panic Station (song)",
+"a":651648821
 },
 {
 "t":"Panic Station",
 "v":"(Album Version)",
 "len":"3:04",
-"s":"Panic Station (song)"
+"s":"Panic Station (song)",
+"a":551989944
 },
 {
 "t":"Panic Station",
 "v":"(Clean Version)",
 "len":"3:04",
-"s":"Panic Station (song)"
+"s":"Panic Station (song)",
+"a":551989944
 },
 {
 "t":"Panic Station",
 "v":"(Alternate Version Mixed by Madeon) (Album Version)",
 "len":"2:53",
-"s":"Panic Station (song)"
+"s":"Panic Station (song)",
+"a":651648821
 },
 {
 "t":"Panic Station",
 "v":"(Alternate Version Mixed by Madeon) (Clean Version)",
 "len":"2:53",
-"s":"Panic Station (song)"
+"s":"Panic Station (song)",
+"a":651648821
 },
 {
 "t":"Intro",
@@ -2997,12 +3445,14 @@ window.MUSE = {
 {
 "t":"Dead Inside",
 "len":"4:23",
-"s":"Dead Inside (song)"
+"s":"Dead Inside (song)",
+"a":973556120
 },
 {
 "t":"Psycho",
 "len":"5:17",
-"s":"Psycho (song)"
+"s":"Psycho (song)",
+"a":973556122
 }
 ],
 "img":"covers/psycho-single.jpg"
@@ -3031,12 +3481,14 @@ window.MUSE = {
 {
 "t":"Dead Inside",
 "len":"4:23",
-"s":"Dead Inside (song)"
+"s":"Dead Inside (song)",
+"a":973556120
 },
 {
 "t":"Psycho",
 "len":"5:17",
-"s":"Psycho (song)"
+"s":"Psycho (song)",
+"a":973556122
 }
 ],
 "img":"covers/dead-inside-single.jpg"
@@ -3062,7 +3514,8 @@ window.MUSE = {
 {
 "t":"Mercy",
 "len":"3:52",
-"s":"Mercy (song)"
+"s":"Mercy (song)",
+"a":973556123
 }
 ],
 "img":"covers/mercy-single.jpg",
@@ -3090,7 +3543,8 @@ window.MUSE = {
 {
 "t":"Revolt",
 "len":"4:05",
-"s":"Revolt (song)"
+"s":"Revolt (song)",
+"a":973556128
 }
 ],
 "img":"covers/revolt-single.jpg"
@@ -3118,7 +3572,8 @@ window.MUSE = {
 "t":"Aftermath",
 "v":"(Radio Edit)",
 "len":"3:52",
-"s":"Aftermath (song)"
+"s":"Aftermath (song)",
+"a":1093034315
 }
 ],
 "img":"covers/aftermath-single.jpg"
@@ -3145,13 +3600,15 @@ window.MUSE = {
 {
 "t":"Reapers",
 "len":"5:59",
-"s":"Reapers (song)"
+"s":"Reapers (song)",
+"a":973556124
 },
 {
 "t":"Reapers",
 "v":"(Live from Koln)",
 "len":"5:59",
-"s":"Reapers (song)"
+"s":"Reapers (song)",
+"a":973556124
 }
 ],
 "img":"covers/reapers-single.jpg"
@@ -3177,7 +3634,8 @@ window.MUSE = {
 {
 "t":"Dig Down",
 "len":"3:48",
-"s":"Dig Down (song)"
+"s":"Dig Down (song)",
+"a":1434329556
 }
 ],
 "img":"covers/dig-down-single.jpg"
@@ -3203,7 +3661,8 @@ window.MUSE = {
 {
 "t":"Thought Contagion",
 "len":"3:26",
-"s":"Thought Contagion (song)"
+"s":"Thought Contagion (song)",
+"a":1434329542
 }
 ],
 "img":"covers/thought-contagion-single.jpg"
@@ -3230,7 +3689,8 @@ window.MUSE = {
 {
 "t":"Something Human",
 "len":"3:46",
-"s":"Something Human (song)"
+"s":"Something Human (song)",
+"a":1434329540
 }
 ],
 "img":"covers/something-human-single.jpg"
@@ -3256,7 +3716,8 @@ window.MUSE = {
 {
 "t":"Get Up and Fight (No Hook)",
 "len":"4:06",
-"s":"Get Up and Fight (song)"
+"s":"Get Up and Fight (song)",
+"a":1434329553
 }
 ],
 "img":"covers/get-up-and-fight-single.jpg"
@@ -3283,7 +3744,8 @@ window.MUSE = {
 {
 "t":"The Dark Side",
 "len":"3:47",
-"s":"The Dark Side (song)"
+"s":"The Dark Side (song)",
+"a":1434329533
 }
 ],
 "img":"covers/the-dark-side-single.jpg"
@@ -3310,7 +3772,8 @@ window.MUSE = {
 {
 "t":"Pressure",
 "len":"3:55",
-"s":"Pressure (song)"
+"s":"Pressure (song)",
+"a":1434329534
 }
 ],
 "img":"covers/pressure-single.jpg"
@@ -3337,7 +3800,8 @@ window.MUSE = {
 {
 "t":"Won't Stand Down",
 "len":"3:29",
-"s":"Won't Stand Down (song)"
+"s":"Won't Stand Down (song)",
+"a":1613405580
 }
 ],
 "img":"covers/won-t-stand-down-single.jpg"
@@ -3364,17 +3828,20 @@ window.MUSE = {
 {
 "t":"Compliance",
 "len":"4:10",
-"s":"Compliance (song)"
+"s":"Compliance (song)",
+"a":1613405578
 },
 {
 "t":"Compliance (Purple Disco Machine Remix) - Edit",
 "len":"3:16",
-"s":"Compliance_(song)"
+"s":"Compliance_(song)",
+"a":1679837744
 },
 {
 "t":"Compliance (Purple Disco Machine Remix) - Extended",
 "len":"6:57",
-"s":"Compliance_(song)"
+"s":"Compliance_(song)",
+"a":1679838018
 }
 ],
 "img":"covers/compliance-single.jpg"
@@ -3400,7 +3867,8 @@ window.MUSE = {
 {
 "t":"Will of the People",
 "len":"3:18",
-"s":"Will of the People (song)"
+"s":"Will of the People (song)",
+"a":1613405577
 }
 ],
 "img":"covers/will-of-the-people-single.jpg"
@@ -3427,12 +3895,14 @@ window.MUSE = {
 {
 "t":"Kill or Be Killed",
 "len":"4:59",
-"s":"Kill or Be Killed (song)"
+"s":"Kill or Be Killed (song)",
+"a":1613405710
 },
 {
 "t":"Kill or Be Killed - Felsmann + Tiley Reinterpretation",
 "len":"2:51",
-"s":"Kill_or_Be_Killed_(song)"
+"s":"Kill_or_Be_Killed_(song)",
+"a":1669100653
 }
 ],
 "img":"covers/kill-or-be-killed-single.jpg"
@@ -3459,7 +3929,8 @@ window.MUSE = {
 {
 "t":"You Make Me Feel Like It's Halloween",
 "len":"3:00",
-"s":"You Make Me Feel Like It's Halloween (song)"
+"s":"You Make Me Feel Like It's Halloween (song)",
+"a":1613405709
 }
 ],
 "img":"covers/you-make-me-feel-like-it-s-halloween-single.jpg"
@@ -3486,12 +3957,14 @@ window.MUSE = {
 "t":"Ghosts (How Can I Move On)",
 "v":"[feat. Elisa]",
 "len":"3:37",
-"s":"Ghosts (How Can I Move On) (song)"
+"s":"Ghosts (How Can I Move On) (song)",
+"a":1613405708
 },
 {
 "t":"Ghosts (How Can I Move On)",
 "len":"3:37",
-"s":"Ghosts (How Can I Move On) (song)"
+"s":"Ghosts (How Can I Move On) (song)",
+"a":1613405708
 }
 ],
 "img":"covers/ghosts-how-can-i-move-on-feat-elisa-single.jpg"
@@ -3518,12 +3991,14 @@ window.MUSE = {
 "t":"Ghosts (How Can I Move On)",
 "v":"[feat. Mylène Farmer]",
 "len":"3:37",
-"s":"Ghosts (How Can I Move On) (song)"
+"s":"Ghosts (How Can I Move On) (song)",
+"a":1613405708
 },
 {
 "t":"Ghosts (How Can I Move On)",
 "len":"3:37",
-"s":"Ghosts (How Can I Move On) (song)"
+"s":"Ghosts (How Can I Move On) (song)",
+"a":1613405708
 }
 ],
 "img":"covers/ghosts-how-can-i-move-on-feat-myl-ne-farmer-single.jpg"
@@ -3548,17 +4023,20 @@ window.MUSE = {
 {
 "t":"Euphoria (Solomun Remix) - Edit",
 "len":"2:53",
-"s":"Euphoria (song)"
+"s":"Euphoria (song)",
+"a":1685279086
 },
 {
 "t":"Euphoria (Solomun Remix) - Extended",
 "len":"5:46",
-"s":"Euphoria (song)"
+"s":"Euphoria (song)",
+"a":1685279091
 },
 {
 "t":"Euphoria",
 "len":"3:23",
-"s":"Euphoria (song)"
+"s":"Euphoria (song)",
+"a":1613405713
 }
 ],
 "img":"covers/euphoria-solomun-remix.jpg",
@@ -3587,12 +4065,14 @@ window.MUSE = {
 {
 "t":"Unravelling",
 "len":"3:58",
-"s":"Unravelling (song)"
+"s":"Unravelling (song)",
+"a":1829978229
 },
 {
 "t":"Unravelling [Ghost Town Version]",
 "len":"3:32",
-"s":"Unravelling_(song)"
+"s":"Unravelling_(song)",
+"a":1829978229
 }
 ],
 "img":"covers/unravelling-single.jpg"
@@ -3619,7 +4099,8 @@ window.MUSE = {
 {
 "t":"Be With You",
 "len":"3:35",
-"s":"Be With You (song)"
+"s":"Be With You (song)",
+"a":1885607727
 }
 ],
 "img":"covers/be-with-you-single.jpg"
@@ -3645,7 +4126,8 @@ window.MUSE = {
 {
 "t":"Cryogen",
 "len":"5:01",
-"s":"Cryogen (song)"
+"s":"Cryogen (song)",
+"a":1885607726
 }
 ],
 "img":"covers/cryogen-single.jpg"
@@ -3671,7 +4153,8 @@ window.MUSE = {
 {
 "t":"Hexagons",
 "len":"5:26",
-"s":"Hexagons (song)"
+"s":"Hexagons (song)",
+"a":1885607736
 }
 ],
 "img":"covers/hexagons-single.jpg"
@@ -3697,7 +4180,8 @@ window.MUSE = {
 {
 "t":"Nightshift Superstar",
 "len":"4:07",
-"s":"Nightshift Superstar (song)"
+"s":"Nightshift Superstar (song)",
+"a":1885607719
 }
 ],
 "img":"covers/nightshift-superstar-single.jpg"
@@ -3722,7 +4206,8 @@ window.MUSE = {
 {
 "t":"Hush (feat. Ellie Goulding)",
 "len":"3:55",
-"s":"Hush (song)"
+"s":"Hush (song)",
+"a":1885607742
 }
 ],
 "img":"covers/hush-single.jpg"
@@ -3751,97 +4236,116 @@ window.MUSE = {
 {
 "t":"Dead Star",
 "v":"(28th)",
-"s":"Dead Star (song)"
+"s":"Dead Star (song)",
+"a":319620675
 },
 {
 "t":"Micro Cuts",
 "v":"(29th)",
-"s":"Micro Cuts (song)"
+"s":"Micro Cuts (song)",
+"a":138267098
 },
 {
 "t":"Citizen Erased",
 "v":"(28th)",
-"s":"Citizen Erased (song)"
+"s":"Citizen Erased (song)",
+"a":138267296
 },
 {
 "t":"Sunburn",
 "v":"(guitar) (28th)",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":321300045
 },
 {
 "t":"Showbiz",
 "v":"(28th)",
-"s":"Showbiz (song)"
+"s":"Showbiz (song)",
+"a":138267701
 },
 {
 "t":"Megalomania",
 "v":"(29th)",
-"s":"Megalomania (song)"
+"s":"Megalomania (song)",
+"a":138267941
 },
 {
 "t":"Uno",
 "v":"(29th)",
-"s":"Uno (song)"
+"s":"Uno (song)",
+"a":321300123
 },
 {
 "t":"Screenager",
 "v":"(29th)",
-"s":"Screenager (song)"
+"s":"Screenager (song)",
+"a":138268497
 },
 {
 "t":"Feeling Good",
 "v":"(29th)",
-"s":"Feeling Good (song)"
+"s":"Feeling Good (song)",
+"a":319621244
 },
 {
 "t":"Space Dementia",
 "v":"(29th)",
-"s":"Space Dementia (song)"
+"s":"Space Dementia (song)",
+"a":138268966
 },
 {
 "t":"In Your World",
 "v":"(28th)",
-"s":"In Your World (song)"
+"s":"In Your World (song)",
+"a":138269457
 },
 {
 "t":"Muscle Museum",
 "v":"(28th)",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":138269673
 },
 {
 "t":"Cave",
 "v":"(29th)",
-"s":"Cave (song)"
+"s":"Cave (song)",
+"a":991516215
 },
 {
 "t":"New Born",
 "v":"(29th)",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":275506117
 },
 {
 "t":"Hyper Music",
 "v":"(28th)",
-"s":"Hyper Music (song)"
+"s":"Hyper Music (song)",
+"a":319621238
 },
 {
 "t":"Agitated",
 "v":"(28th)",
-"s":"Agitated (song)"
+"s":"Agitated (song)",
+"a":138269979
 },
 {
 "t":"Unintended",
 "v":"(29th)",
-"s":"Unintended (song)"
+"s":"Unintended (song)",
+"a":275506118
 },
 {
 "t":"Plug In Baby",
 "v":"(29th)",
-"s":"Plug In Baby (song)"
+"s":"Plug In Baby (song)",
+"a":319621493
 },
 {
 "t":"Bliss",
 "v":"(28th)",
-"s":"Bliss (song)"
+"s":"Bliss (song)",
+"a":992088660
 }
 ],
 "img":"covers/hullabaloo-live.jpg"
@@ -3867,88 +4371,109 @@ window.MUSE = {
 "tracks":[
 {
 "t":"Forced In",
-"s":"Forced In (song)"
+"s":"Forced In (song)",
+"a":138265370
 },
 {
 "t":"Shrinking Universe",
-"s":"Shrinking Universe (song)"
+"s":"Shrinking Universe (song)",
+"a":138265490
 },
 {
 "t":"Recess",
-"s":"Recess (song)"
+"s":"Recess (song)",
+"a":138265593
 },
 {
 "t":"Yes Please",
-"s":"Yes Please (song)"
+"s":"Yes Please (song)",
+"a":138265721
 },
 {
 "t":"Map of Your Head",
-"s":"Map of Your Head (song)"
+"s":"Map of Your Head (song)",
+"a":138265822
 },
 {
 "t":"Nature_1",
-"s":"Nature_1 (song)"
+"s":"Nature_1 (song)",
+"a":138265950
 },
 {
 "t":"Shine Acoustic",
-"s":"Shine (song)"
+"s":"Shine (song)",
+"a":138266112
 },
 {
 "t":"Ashamed",
-"s":"Ashamed (song)"
+"s":"Ashamed (song)",
+"a":138266358
 },
 {
 "t":"The Gallery",
-"s":"The Gallery (song)"
+"s":"The Gallery (song)",
+"a":138266484
 },
 {
 "t":"Hyper Chondriac Music",
-"s":"Hyper Chondriac Music (song)"
+"s":"Hyper Chondriac Music (song)",
+"a":138266652
 },
 {
 "t":"Dead Star",
-"s":"Dead Star (song)"
+"s":"Dead Star (song)",
+"a":319620675
 },
 {
 "t":"Micro Cuts",
-"s":"Micro Cuts (song)"
+"s":"Micro Cuts (song)",
+"a":138267098
 },
 {
 "t":"Citizen Erased",
-"s":"Citizen Erased (song)"
+"s":"Citizen Erased (song)",
+"a":138267296
 },
 {
 "t":"Showbiz",
-"s":"Showbiz (song)"
+"s":"Showbiz (song)",
+"a":138267701
 },
 {
 "t":"Megalomania",
-"s":"Megalomania (song)"
+"s":"Megalomania (song)",
+"a":138267941
 },
 {
 "t":"Darkshines",
-"s":"Darkshines (song)"
+"s":"Darkshines (song)",
+"a":138268197
 },
 {
 "t":"Screenager",
 "v":"(piano)",
-"s":"Screenager (song)"
+"s":"Screenager (song)",
+"a":138268497
 },
 {
 "t":"Space Dementia",
-"s":"Space Dementia (song)"
+"s":"Space Dementia (song)",
+"a":138268966
 },
 {
 "t":"In Your World",
-"s":"In Your World (song)"
+"s":"In Your World (song)",
+"a":138269457
 },
 {
 "t":"Muscle Museum",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":138269673
 },
 {
 "t":"Agitated",
-"s":"Agitated (song)"
+"s":"Agitated (song)",
+"a":138269979
 }
 ],
 "img":"covers/hullabaloo-soundtrack-live.jpg"
@@ -3973,51 +4498,63 @@ window.MUSE = {
 "tracks":[
 {
 "t":"Hysteria",
-"s":"Hysteria (song)"
+"s":"Hysteria (song)",
+"a":275506110
 },
 {
 "t":"New Born",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":275506117
 },
 {
 "t":"Sing for Absolution",
-"s":"Sing for Absolution (song)"
+"s":"Sing for Absolution (song)",
+"a":1716102077
 },
 {
 "t":"Muscle Museum",
-"s":"Muscle Museum (song)"
+"s":"Muscle Museum (song)",
+"a":138269673
 },
 {
 "t":"Apocalypse Please",
-"s":"Apocalypse Please (song)"
+"s":"Apocalypse Please (song)",
+"a":1716096822
 },
 {
 "t":"Ruled by Secrecy",
-"s":"Ruled by Secrecy (song)"
+"s":"Ruled by Secrecy (song)",
+"a":1716097106
 },
 {
 "t":"Sunburn",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":321300045
 },
 {
 "t":"Butterflies & Hurricanes",
-"s":"Butterflies and Hurricanes (song)"
+"s":"Butterflies and Hurricanes (song)",
+"a":275506113
 },
 {
 "t":"Bliss",
-"s":"Bliss (song)"
+"s":"Bliss (song)",
+"a":992088660
 },
 {
 "t":"Time Is Running Out",
-"s":"Time Is Running Out (song)"
+"s":"Time Is Running Out (song)",
+"a":275506116
 },
 {
 "t":"Plug In Baby",
-"s":"Plug In Baby (song)"
+"s":"Plug In Baby (song)",
+"a":319621493
 },
 {
 "t":"Blackout",
-"s":"Blackout (song)"
+"s":"Blackout (song)",
+"a":1716102081
 }
 ],
 "img":"covers/absolution-tour-live.jpg"
@@ -4045,59 +4582,73 @@ window.MUSE = {
 "url":"https://musewiki.org/H.A.A.R.P._(live)",
 "tracks":[
 {
-"t":"Intro"
+"t":"Intro",
+"a":275506102
 },
 {
 "t":"Knights of Cydonia",
-"s":"Knights of Cydonia (song)"
+"s":"Knights of Cydonia (song)",
+"a":275506109
 },
 {
 "t":"Hysteria",
-"s":"Hysteria (song)"
+"s":"Hysteria (song)",
+"a":275506110
 },
 {
 "t":"Supermassive Black Hole",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":275506111
 },
 {
 "t":"Map of the Problematique",
-"s":"Map of the Problematique (song)"
+"s":"Map of the Problematique (song)",
+"a":275506112
 },
 {
 "t":"Butterflies & Hurricanes",
-"s":"Butterflies and Hurricanes (song)"
+"s":"Butterflies and Hurricanes (song)",
+"a":275506113
 },
 {
 "t":"Invincible",
-"s":"Invincible (song)"
+"s":"Invincible (song)",
+"a":275506114
 },
 {
 "t":"Starlight",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":275506115
 },
 {
 "t":"Time Is Running Out",
-"s":"Time Is Running Out (song)"
+"s":"Time Is Running Out (song)",
+"a":275506116
 },
 {
 "t":"New Born",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":275506117
 },
 {
 "t":"Unintended",
-"s":"Unintended (song)"
+"s":"Unintended (song)",
+"a":275506118
 },
 {
 "t":"Micro Cuts",
-"s":"Micro Cuts (song)"
+"s":"Micro Cuts (song)",
+"a":275506119
 },
 {
 "t":"Stockholm Syndrome",
-"s":"Stockholm Syndrome (song)"
+"s":"Stockholm Syndrome (song)",
+"a":275506120
 },
 {
 "t":"Take a Bow",
-"s":"Take a Bow (song)"
+"s":"Take a Bow (song)",
+"a":275506121
 }
 ],
 "img":"covers/h-a-a-r-p-live.jpg"
@@ -4126,67 +4677,80 @@ window.MUSE = {
 {
 "t":"Supremacy",
 "len":"5:14",
-"s":"Supremacy (song)"
+"s":"Supremacy (song)",
+"a":728375636
 },
 {
 "t":"Panic Station",
 "len":"3:12",
-"s":"Panic Station (song)"
+"s":"Panic Station (song)",
+"a":728375637
 },
 {
 "t":"Resistance",
 "len":"5:32",
-"s":"Resistance (song)"
+"s":"Resistance (song)",
+"a":728375638
 },
 {
 "t":"Hysteria",
 "len":"5:06",
-"s":"Hysteria (song)"
+"s":"Hysteria (song)",
+"a":728375639
 },
 {
 "t":"Animals",
 "len":"4:21",
-"s":"Animals (song)"
+"s":"Animals (song)",
+"a":728375640
 },
 {
 "t":"Knights of Cydonia",
 "len":"8:19",
-"s":"Knights of Cydonia (song)"
+"s":"Knights of Cydonia (song)",
+"a":728375641
 },
 {
 "t":"Explorers",
 "len":"5:54",
-"s":"Explorers (song)"
+"s":"Explorers (song)",
+"a":728375642
 },
 {
 "t":"Follow Me",
 "len":"3:52",
-"s":"Follow Me (song)"
+"s":"Follow Me (song)",
+"a":728375643
 },
 {
 "t":"Madness",
 "len":"4:37",
-"s":"Madness (song)"
+"s":"Madness (song)",
+"a":728375644
 },
 {
 "t":"Guiding Light",
 "len":"4:18",
-"s":"Guiding Light (song)"
+"s":"Guiding Light (song)",
+"a":728375645
 },
 {
 "t":"Supermassive Black Hole",
 "len":"4:05",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":728375646
 },
 {
 "t":"Uprising",
 "len":"5:35",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":728375648
 },
 {
 "t":"Starlight",
 "len":"4:27",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":728375649
 }
 ],
 "img":"covers/live-at-rome-olympic-stadium-live.jpg",
@@ -4214,22 +4778,26 @@ window.MUSE = {
 "t":"Aftermath",
 "v":"(Introduction only, with short speeches)",
 "len":"1:20",
-"s":"Aftermath (song)"
+"s":"Aftermath (song)",
+"a":973556129
 },
 {
 "t":"Drones",
 "len":"2:45",
-"s":"Drones (song)"
+"s":"Drones (song)",
+"a":973556131
 },
 {
 "t":"Psycho",
 "len":"5:24",
-"s":"Psycho (song)"
+"s":"Psycho (song)",
+"a":973556122
 },
 {
 "t":"Reapers",
 "len":"5:51",
-"s":"Reapers (song)"
+"s":"Reapers (song)",
+"a":973556124
 },
 {
 "t":"Interlude",
@@ -4240,72 +4808,86 @@ window.MUSE = {
 "t":"Hysteria",
 "v":"(+ Vuilstamen Riff)",
 "len":"4:34",
-"s":"Hysteria (song)"
+"s":"Hysteria (song)",
+"a":275506110
 },
 {
 "t":"Dead Inside",
 "len":"4:30",
-"s":"Dead Inside (song)"
+"s":"Dead Inside (song)",
+"a":973556120
 },
 {
 "t":"The Handler",
 "len":"4:42",
-"s":"The Handler (song)"
+"s":"The Handler (song)",
+"a":973556125
 },
 {
 "t":"Supermassive Black Hole",
 "len":"4:58",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":275506111
 },
 {
 "t":"Prelude",
 "len":"0:57",
-"s":"Prelude (song)"
+"s":"Prelude (song)",
+"a":551989945
 },
 {
 "t":"Starlight",
 "len":"4:07",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":275506115
 },
 {
 "t":"Madness",
 "len":"4:39",
-"s":"Madness (song)"
+"s":"Madness (song)",
+"a":728375644
 },
 {
 "t":"Time Is Running Out",
 "len":"4:13",
-"s":"Time Is Running Out (song)"
+"s":"Time Is Running Out (song)",
+"a":275506116
 },
 {
 "t":"Uprising",
 "len":"5:29",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":728375648
 },
 {
 "t":"The Globalist",
 "len":"10:10",
-"s":"The Globalist (song)"
+"s":"The Globalist (song)",
+"a":973556130
 },
 {
 "t":"Drones",
 "v":"(Reprise)",
 "len":"2:42",
-"s":"Drones (song)"
+"s":"Drones (song)",
+"a":973556131
 },
 {
 "t":"Take a Bow",
 "len":"4:27",
-"s":"Take a Bow (song)"
+"s":"Take a Bow (song)",
+"a":275506121
 },
 {
 "t":"Mercy",
 "len":"4:01",
-"s":"Mercy (song)"
+"s":"Mercy (song)",
+"a":973556123
 },
 {
 "t":"Knights of Cydonia",
-"s":"Knights of Cydonia (song)"
+"s":"Knights of Cydonia (song)",
+"a":275506109
 }
 ],
 "img":"covers/drones-world-tour-live.jpg"
@@ -4333,20 +4915,24 @@ window.MUSE = {
 {
 "t":"Algorithm",
 "v":"(Alternate Reality Version shortened)",
-"s":"Algorithm (song)"
+"s":"Algorithm (song)",
+"a":1434329560
 },
 {
 "t":"Pressure",
 "v":"(film edit)",
-"s":"Pressure (song)"
+"s":"Pressure (song)",
+"a":1434329534
 },
 {
 "t":"Psycho",
-"s":"Psycho (song)"
+"s":"Psycho (song)",
+"a":973556122
 },
 {
 "t":"Break It to Me",
-"s":"Break It to Me (song)"
+"s":"Break It to Me (song)",
+"a":1434329539
 },
 {
 "t":"Pray",
@@ -4355,78 +4941,95 @@ window.MUSE = {
 },
 {
 "t":"The Dark Side",
-"s":"The Dark Side (song)"
+"s":"The Dark Side (song)",
+"a":1434329533
 },
 {
 "t":"Supermassive Black Hole",
-"s":"Supermassive Black Hole (song)"
+"s":"Supermassive Black Hole (song)",
+"a":275506111
 },
 {
 "t":"Thought Contagion",
-"s":"Thought Contagion (song)"
+"s":"Thought Contagion (song)",
+"a":1434329542
 },
 {
 "t":"Uprising",
 "v":"(extended)",
-"s":"Uprising (song)"
+"s":"Uprising (song)",
+"a":728375648
 },
 {
 "t":"Propaganda",
 "v":"(full band on B-stage)",
-"s":"Propaganda (song)"
+"s":"Propaganda (song)",
+"a":1434329537
 },
 {
 "t":"Madness",
-"s":"Madness (song)"
+"s":"Madness (song)",
+"a":728375644
 },
 {
 "t":"The Void",
-"s":"The Void (song)"
+"s":"The Void (song)",
+"a":1434329558
 },
 {
 "t":"Dig Down",
 "v":"(Acoustic Gospel Version)",
-"s":"Dig Down (song)"
+"s":"Dig Down (song)",
+"a":1434329752
 },
 {
 "t":"Mercy",
-"s":"Mercy (song)"
+"s":"Mercy (song)",
+"a":973556123
 },
 {
 "t":"Take a Bow",
-"s":"Take a Bow (song)"
+"s":"Take a Bow (song)",
+"a":275506121
 },
 {
 "t":"Prelude",
-"s":"Prelude (song)"
+"s":"Prelude (song)",
+"a":551989945
 },
 {
 "t":"Starlight",
-"s":"Starlight (song)"
+"s":"Starlight (song)",
+"a":275506115
 },
 {
 "t":"Algorithm",
-"s":"Algorithm (song)"
+"s":"Algorithm (song)",
+"a":1434329350
 },
 {
 "t":"Stockholm Syndrome",
 "v":"(shortened)",
-"s":"Stockholm Syndrome (song)"
+"s":"Stockholm Syndrome (song)",
+"a":275506120
 },
 {
 "t":"The Handler",
 "v":"(shortened)",
-"s":"The Handler (song)"
+"s":"The Handler (song)",
+"a":973556125
 },
 {
 "t":"Assassin",
 "v":"(intro)",
-"s":"Assassin (song)"
+"s":"Assassin (song)",
+"a":539724385
 },
 {
 "t":"New Born",
 "v":"(shortened)",
-"s":"New Born (song)"
+"s":"New Born (song)",
+"a":275506117
 }
 ],
 "img":"covers/simulation-theory-film-live.jpg"
@@ -4486,11 +5089,13 @@ window.MUSE = {
 },
 {
 "t":"Agitated",
-"s":"Agitated (song)"
+"s":"Agitated (song)",
+"a":319620362
 },
 {
 "t":"Coma",
-"s":"Coma (song)"
+"s":"Coma (song)",
+"a":319622506
 },
 {
 "t":"Balloonatic",
@@ -4510,11 +5115,13 @@ window.MUSE = {
 },
 {
 "t":"Sober",
-"s":"Sober (song)"
+"s":"Sober (song)",
+"a":991516219
 },
 {
 "t":"Jimmy Kane",
-"s":"Jimmy Kane (song)"
+"s":"Jimmy Kane (song)",
+"a":319620349
 },
 {
 "t":"Rain",
@@ -4522,7 +5129,8 @@ window.MUSE = {
 },
 {
 "t":"Ashamed",
-"s":"Ashamed (song)"
+"s":"Ashamed (song)",
+"a":138266358
 },
 {
 "t":"Untitled",
@@ -4532,11 +5140,13 @@ window.MUSE = {
 {
 "t":"Sober",
 "v":"(mislabeled as Jimmy Kane)",
-"s":"Sober (song)"
+"s":"Sober (song)",
+"a":991516219
 },
 {
 "t":"Cave",
-"s":"Cave (song)"
+"s":"Cave (song)",
+"a":991516215
 },
 {
 "t":"Connect The Kettle Lead",
@@ -4549,7 +5159,8 @@ window.MUSE = {
 },
 {
 "t":"Plug In Baby",
-"s":"Plug In Baby (song)"
+"s":"Plug In Baby (song)",
+"a":992088663
 },
 {
 "t":"Earthquake",
@@ -4561,7 +5172,8 @@ window.MUSE = {
 },
 {
 "t":"Overdue",
-"s":"Overdue (song)"
+"s":"Overdue (song)",
+"a":991516221
 },
 {
 "t":"The Unfishable",
@@ -4584,23 +5196,28 @@ window.MUSE = {
 "tracks":[
 {
 "t":"Do We Need This",
-"s":"Do We Need This (song)"
+"s":"Do We Need This (song)",
+"a":1115765063
 },
 {
 "t":"Spiral Static",
-"s":"Spiral Static (song)"
+"s":"Spiral Static (song)",
+"a":991516223
 },
 {
 "t":"Hate This & I'll Love You",
-"s":"Hate This & I'll Love You (song)"
+"s":"Hate This & I'll Love You (song)",
+"a":991516222
 },
 {
 "t":"Showbiz",
-"s":"Showbiz (song)"
+"s":"Showbiz (song)",
+"a":991516216
 },
 {
 "t":"Plug In Baby",
-"s":"Plug In Baby (song)"
+"s":"Plug In Baby (song)",
+"a":992088663
 }
 ]
 },
@@ -4623,12 +5240,14 @@ window.MUSE = {
 {
 "t":"Sunburn",
 "v":"(unmastered demo)",
-"s":"Sunburn (song)"
+"s":"Sunburn (song)",
+"a":991516211
 },
 {
 "t":"Overdue",
 "v":"(unmastered demo)",
-"s":"Overdue (song)"
+"s":"Overdue (song)",
+"a":991516221
 }
 ],
 "img":"covers/sunburn-overdue-demo.jpg"
